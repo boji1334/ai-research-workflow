@@ -32,6 +32,14 @@
 - 适配：原始预测/日志复算、公平训练和调参预算、小样本支持集、预训练数据接触、弱类、消融解释与计算成本。
 - 边界：未移植临床 GRADE/Cochrane 等特定评估工具，未集成其可选绘图或第三方付费 API。
 
+## Nature Skills — 隔离审查、数值核验与文献证据
+
+- 来源：固定提交 `07009f91f99c7108519e7657885f1a89d91099d5` 的 [nature-reviewer](https://github.com/Yuan1z0825/nature-skills/blob/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-reviewer/SKILL.md)、[审查执行流程](https://github.com/Yuan1z0825/nature-skills/blob/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-reviewer/references/reviewer-workflow.md)、[数值与一致性审计](https://github.com/Yuan1z0825/nature-skills/blob/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-reviewer/references/forensic-consistency-audit.md)，以及 [nature-academic-search](https://github.com/Yuan1z0825/nature-skills/blob/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-academic-search/SKILL.md) 的[多源检索](https://github.com/Yuan1z0825/nature-skills/blob/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-academic-search/references/workflows/wf1-multi-source-search.md)与[引用核验](https://github.com/Yuan1z0825/nature-skills/blob/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-academic-search/references/workflows/wf2-citation-verification.md)流程。
+- 借鉴：相同冻结证据包、预先指定阅读重点、隔离报告定稿后综合；单独进行数值/来源核验；问题 ID、阻断范围、解决标准与证据追踪；多源查询、版本去重、身份与命题支持分开核实、单源故障时保留覆盖缺口。
+- 适配：独立编写为视觉研究实验规程；正式模块/最终结果审查默认三份隔离内部报告，小试和局部复核按实际风险与预算缩减并注明。审查发现进入已有候选族、两轮修复和全局预算，不新增无限实验循环。记录模板和范围见 [审查流程](review.md) 与 [文献流程](literature.md)。
+- 边界：未移植其提示词、脚本、MCP 服务、安装器或完整科研套件。目标按用户期刊和任务设定；未默认采用 Nature 投稿结构、特定审稿轴或医学渠道。模型内部隔离审查不表述为外部同行评审，审计发现不冒充审查者共识。
+- 上游许可：本次核对的 [LICENSE](https://github.com/Yuan1z0825/nature-skills/blob/07009f91f99c7108519e7657885f1a89d91099d5/LICENSE) 为 Apache-2.0；这里记录流程设计来源，未再分发上游文件。安装或再分发上游时遵循其对应通知与许可。
+
 ## Codex 技能格式
 
 - 来源：[OpenAI 官方 agent skills 文档](https://developers.openai.com/codex/skills/)。

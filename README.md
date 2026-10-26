@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml"><img src="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml/badge.svg" alt="Software validation"></a>
-  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.2"><img src="https://img.shields.io/badge/release-v0.1.2%20preview-166b5b" alt="v0.1.2 preview"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.3"><img src="https://img.shields.io/badge/release-v0.1.3%20preview-166b5b" alt="v0.1.3 preview"></a>
   <a href="skills/ai-research-workflow/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="Optional CLI: Python 3.10 or newer"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT License"></a>
 </p>
@@ -35,7 +35,7 @@ AI Research Workflow gives Codex a research procedure: understand the existing p
 | --- | --- |
 | **Project-grounded intake** | Read existing materials and resolve project facts first; then confirm the journal or publication level, access preference, and deadline. |
 | **Mechanism-level novelty review** | Compare the closest papers, equations, supervision, and implementation paths. Separate a new mechanism from a renamed or known enhancement. |
-| **Two scientific reviews** | Review the proposed module before a pilot and the observed results before expanding experiments or accepting a contribution. |
+| **Two scientific reviews** | Review the module before a pilot and the results before expansion or acceptance; formal reviews use isolated reports followed by a separate numerical audit and tracked resolution tests. |
 | **Bounded candidate search** | After an unsuccessful initial pilot, allow at most two justified small repair rounds. Close exhausted candidates and explore a different mechanism within the remaining budget. |
 | **Evidence matched to the claim** | Plan strong baselines, fair comparisons, ablations, stability, generalization, and cost measurements around the actual contribution and publication target. |
 | **Traceable continuation** | Preserve the project protocol, candidate history, run identities, raw artifacts, failures, reviews, and next action across sessions. |
@@ -142,9 +142,10 @@ The helper records runs; Codex and the project's execution tools launch them. Sc
 | --- | --- |
 | [Design note](docs/DESIGN.md) | Scope, workflow, review logic, bounded iteration, and research-method synthesis. |
 | [Validation record](docs/VALIDATION.md) | Completed software and internal behavior checks; outstanding research validation. |
+| [v0.1.3 validation](docs/VALIDATION-0.1.3.md) | Isolated review, post-review audit, and bounded literature/experiment continuation checks. |
 | [Skill entrypoint](skills/ai-research-workflow/SKILL.md) | The procedure loaded by Codex. |
 | [Design provenance](skills/ai-research-workflow/references/sources.md) | Upstream sources pinned to inspected revisions and the exact adaptation boundaries. |
-| [Release notes and migration](docs/RELEASE-NOTES-0.1.2.md) | Versioned installation and release information. |
+| [Release notes and migration](docs/RELEASE-NOTES-0.1.3.md) | Versioned installation and release information. |
 | [Changelog](CHANGELOG.md) | Changes to the repository. |
 | [Pre-pilot audit](docs/AUDIT-2026-10-26.zh-CN.md) · [Pilot checklist](docs/PILOT-TEST.zh-CN.md) | Findings, fixes, and observable behavior for a first project pilot (Chinese). |
 
@@ -167,7 +168,11 @@ This skill synthesizes the following research skills and workflow methods into a
 - [Orchestra Research · brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas): research questions and mechanism hypotheses grounded in real bottlenecks.
 - [Orchestra Research · autoresearch](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/0-autoresearch-skill): inner and outer experiment loops, predefined protocols, and negative-result records.
 - [K-Dense · scientific-critical-thinking](https://github.com/K-Dense-AI/scientific-agent-skills/tree/593377bb048752abb0152deab9fbb1083a6087df/skills/scientific-critical-thinking): evidence quality, confounds, mechanism explanations, and result review.
+- [Nature Skills · nature-reviewer](https://github.com/Yuan1z0825/nature-skills/tree/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-reviewer): isolated reports, post-review numerical and provenance checks, and traceable concern resolution.
+- [Nature Skills · nature-academic-search](https://github.com/Yuan1z0825/nature-skills/tree/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-academic-search): multi-source literature search, version reconciliation, citation verification, and source-failure handling.
 - [AI Scientist v3 · research workflow methods](https://github.com/SakanaAI/AI-Scientist-v3): stage continuity, run identities, and experimental-artifact tracking.
+
+Formal module and final-result reviews default to three isolated internal reports. Pilots and scoped checks can use fewer reports with the reason and limitations recorded. Findings do not extend the experiment budget or the two-repair limit. The target remains the agreed journal and task.
 
 The [provenance record](skills/ai-research-workflow/references/sources.md) documents the synthesis and adaptation of each source.
 
@@ -179,7 +184,7 @@ To reference this software, use the repository's **Cite this repository** entry 
 @software{ai_research_workflow_2026,
   author  = {{boji1334}},
   title   = {AI Research Workflow},
-  version = {0.1.2},
+  version = {0.1.3},
   year    = {2026},
   url     = {https://github.com/boji1334/ai-research-workflow}
 }

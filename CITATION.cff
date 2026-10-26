@@ -6,7 +6,7 @@ abstract: "An experimental Codex skill focused on computer vision and vision mod
 authors:
   - name: "boji1334"
     website: "https://github.com/boji1334"
-version: "0.1.2"
+version: "0.1.3"
 date-released: 2026-10-26
 repository-code: "https://github.com/boji1334/ai-research-workflow"
 url: "https://github.com/boji1334/ai-research-workflow"

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.3 — 2026-10-26
+
+- Adapt Nature Skills review and academic-search methods to vision research experiments, with pinned provenance.
+- Default formal reviews to three isolated reports over frozen evidence, then run a separate numerical/provenance audit before synthesis.
+- Track stable concern IDs, affected stages, resolution tests, and actual closure evidence.
+- Add multi-source literature records with version reconciliation, identity/support separation, and explicit source-failure gaps.
+- Preserve the two-repair ceiling, candidate-family history, global budgets and deadline; the registry code/schema are unchanged.
+- Add bounded synthetic behavior checks and bilingual release documentation.
+
 ## 0.1.2 — 2026-10-26
 
 - Make baseline verification and pilot result review explicit before expanding experiments.

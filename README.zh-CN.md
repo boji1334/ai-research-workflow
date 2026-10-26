@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml"><img src="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml/badge.svg" alt="软件验证"></a>
-  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.2"><img src="https://img.shields.io/badge/release-v0.1.2%20preview-166b5b" alt="v0.1.2 预览版"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.3"><img src="https://img.shields.io/badge/release-v0.1.3%20preview-166b5b" alt="v0.1.3 预览版"></a>
   <a href="skills/ai-research-workflow/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="可选工具：Python 3.10 及以上"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT 许可证"></a>
 </p>
@@ -27,7 +27,7 @@
 
 本技能为 Codex 提供一套可执行的研究规程：先了解已有项目和论文要求，再查新、设计机制、实现模块、做有限实验并审查证据。工作流止于实验交付，包含代码、结果、消融、审查记录和复现材料。
 
-**当前状态：v0.1.2，实验性预览版。** 软件检查和隔离上下文的合成场景检查已记录在[验证记录](docs/VALIDATION.zh-CN.md)中。真实视觉研究项目的端到端有效性仍待验收；新颖性、效果与论文目标达成情况需要实际项目证据。
+**当前状态：v0.1.3，实验性预览版。** 软件检查和隔离上下文的合成场景检查已记录在[验证记录](docs/VALIDATION.zh-CN.md)中。真实视觉研究项目的端到端有效性仍待验收；新颖性、效果与论文目标达成情况需要实际项目证据。
 
 ## 核心能力
 
@@ -35,7 +35,7 @@
 | --- | --- |
 | **先了解项目** | 先读材料、补齐项目事实，再确认目标期刊或级别、OA 偏好和可接受周期。 |
 | **查到机制层面** | 对比最近邻原文、公式、监督与实现路径，区分新机制、换名和已知增强。 |
-| **两道科学审查** | 小试前审查模块，扩大实验或确认贡献前审查结果。 |
+| **两道科学审查** | 小试前审查模块，扩大实验或确认贡献前审查结果；正式审查先隔离报告定稿，再独立核验数值并跟踪问题关闭。 |
 | **有限候选搜索** | 首次小试无提升后，最多追加两轮有依据的小规模修复；关闭失败候选后，在剩余预算内寻找不同机制。 |
 | **实验围绕贡献** | 按实际主张和论文目标安排强基线、公平对比、消融、稳定性、泛化与成本证据。 |
 | **有记录地接续** | 保留协议、候选族、运行标识、原始产物、失败、审查和下一步，支持跨会话继续。 |
@@ -138,10 +138,11 @@ python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
 | 文档 | 内容 |
 | --- | --- |
 | [设计说明](docs/DESIGN.md) | 范围、流程、审查、有限迭代和科研技能整合。 |
+| [v0.1.3 验证](docs/VALIDATION-0.1.3.md) | 隔离报告、后置核验及查新/实验接续的有界合成检查。 |
 | [中文验证记录](docs/VALIDATION.zh-CN.md) · [English](docs/VALIDATION.md) | 已完成的软件与内部行为检查，以及待做的真实研究验证。 |
 | [技能入口](skills/ai-research-workflow/SKILL.md) | Codex 实际加载的规程。 |
 | [设计来源](skills/ai-research-workflow/references/sources.md) | 固定到已查阅提交的上游来源与适配边界。 |
-| [发布与迁移说明](docs/RELEASE-NOTES-0.1.2.md) | 版本、安装和发布信息。 |
+| [发布与迁移说明](docs/RELEASE-NOTES-0.1.3.md) | 版本、安装和发布信息。 |
 | [变更记录](CHANGELOG.md) | 仓库改动。 |
 | [测试前审查](docs/AUDIT-2026-10-26.zh-CN.md) · [项目试用清单](docs/PILOT-TEST.zh-CN.md) | 本轮发现、修订与真实试用的观察条件。 |
 
@@ -162,7 +163,11 @@ python tools/validate_repository.py
 - [Orchestra Research · brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas)：从真实瓶颈形成研究问题与机制假设。
 - [Orchestra Research · autoresearch](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/0-autoresearch-skill)：内外两层实验循环、协议预设与负结果记录。
 - [K-Dense · scientific-critical-thinking](https://github.com/K-Dense-AI/scientific-agent-skills/tree/593377bb048752abb0152deab9fbb1083a6087df/skills/scientific-critical-thinking)：证据质量、混杂因素、机制解释与结果审查。
+- [Nature Skills · nature-reviewer](https://github.com/Yuan1z0825/nature-skills/tree/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-reviewer)：隔离审查报告、定稿后数值与来源核验、可追踪的问题解决标准。
+- [Nature Skills · nature-academic-search](https://github.com/Yuan1z0825/nature-skills/tree/07009f91f99c7108519e7657885f1a89d91099d5/skills/nature-academic-search)：多源查新、版本关联去重、引用核验与单源故障处理。
 - [AI Scientist v3 · 研究流程方法](https://github.com/SakanaAI/AI-Scientist-v3)：研究阶段接续、运行标识与实验产物追踪。
+
+正式模块和最终结果审查默认三份隔离内部报告；小试与局部复核可按风险和预算缩减并记录限制。发现问题不增加实验额度，两轮修复上限继续生效；评价目标仍以用户约定的期刊和任务为准。
 
 具体整合范围与适配记录见[来源说明](skills/ai-research-workflow/references/sources.md)。
 
@@ -174,7 +179,7 @@ python tools/validate_repository.py
 @software{ai_research_workflow_2026,
   author  = {{boji1334}},
   title   = {AI Research Workflow},
-  version = {0.1.2},
+  version = {0.1.3},
   year    = {2026},
   url     = {https://github.com/boji1334/ai-research-workflow}
 }

@@ -1,6 +1,6 @@
 # AI Research Workflow: design note
 
-**Implementation:** v0.1.2 experimental skill. **Document date:** October 26, 2026.
+**Implementation:** v0.1.3 experimental skill. **Document date:** October 26, 2026.
 
 This note describes the procedure implemented by the [skill](../skills/ai-research-workflow/SKILL.md), its optional run registry, and its current validation limits. It is project documentation. Research effectiveness on a real vision research project is an open validation task.
 
@@ -86,7 +86,11 @@ Available decisions are `evidence_complete`, `needs_bounded_followup`, `gain_wit
 
 Every material finding locates evidence and states its effect on the claim, severity, smallest justified correction, and verification method. Reviewers receive the research question and actual artifacts without an expected verdict. Conflicting judgments are resolved against sources, recomputation, or a discriminating small test. Agreement alone is not empirical evidence.
 
-**Current enforcement boundary:** the instructions require module and result review at key decisions. They do not mandate a new isolated review agent before every repair round, and the registry does not validate a review report's approval. Those distinctions remain explicit in v0.1.2. See the [review procedure](../skills/ai-research-workflow/references/review.md).
+Formal module and final-result reviews default to three isolated internal reports over one frozen source packet, with emphases chosen in advance. Reports are frozen before a separate numerical/provenance audit and synthesis. Pilot and scoped reviews can reduce the count with recorded limits. No shared concern ledger or other report is supplied to a reviewer before freezing; review consensus and audit findings remain separate.
+
+Material issues carry stable IDs, affected claims/stages, blocking status, resolution tests, and recheck evidence. Open blockers prevent the affected transition or acceptance. Review findings do not create extra repair rounds or extend the deadline. Search records separately track source failures, linked paper versions, citation identity, and support for a specific claim.
+
+**Current enforcement boundary:** the instructions require module and result review at key decisions. They do not mandate a new isolated review agent before every repair round, and the registry does not validate a review report's approval. Those distinctions remain explicit in v0.1.3. See the [review procedure](../skills/ai-research-workflow/references/review.md).
 
 ## 6. Negative results and bounded search
 
@@ -136,6 +140,8 @@ The skill synthesizes complementary research skills and workflow methods into a 
 | Orchestra Research · `brainstorming-research-ideas` | Research questions and mechanism hypotheses grounded in real bottlenecks. |
 | Orchestra Research · `autoresearch` | Inner and outer experiment loops, predefined protocols, and negative-result records. |
 | K-Dense · `scientific-critical-thinking` | Evidence quality, confounds, mechanism explanations, and result review. |
+| Nature Skills · `nature-reviewer` | Frozen source packets, isolated reports, post-review numerical/provenance audits, and issue resolution tests. |
+| Nature Skills · `nature-academic-search` | Multi-source discovery, version reconciliation, citation identity/support separation, and source-failure handling. |
 | AI Scientist v3 · research workflow methods | Stage continuity, run identities, and experimental-artifact tracking. |
 
 The [provenance record](../skills/ai-research-workflow/references/sources.md) links the inspected revisions and documents each source's adaptation to this skill.
