@@ -1,59 +1,69 @@
-# 验证记录与验收范围
+# Validation record and acceptance scope
 
-版本：0.1.0。日期：2026-10-26。
+**Version:** 0.1.0. **Date:** October 26, 2026. [简体中文](VALIDATION.zh-CN.md)
 
-## 软件与打包
+This record distinguishes software validation, internal synthetic behavior checks, and real research acceptance. The first two have bounded completed checks; real-project effectiveness remains unvalidated.
 
-发布前核对项：
+## Software and packaging
 
-- 官方 `skill-creator` 静态校验：通过，`Skill is valid!`。
-- Python 标准库单元/CLI 测试：31 项通过，当前 Windows / Python 3.13.9 环境实际运行。
-- 相对链接、Python/JSON 与技能包结构：通过。
-- 独立技能目录迁移检查：通过，临时目录中 CLI 可启动，未填写的协议被正确判为未就绪。
-- 发布文件的个人项目材料/凭据检查：已检查本地用户路径、两个原研究项目标识、常见 token/key 与私钥特征，未发现匹配；同时检查了发布文件清单。
-- Release ZIP：压缩包完整性与解压后的逐文件字节一致性检查通过，附 `SHA256SUMS`。
-- GitHub Actions：覆盖 Windows/Linux 与 Python 3.10/3.12；每次提交的实际结果见 [Actions](https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml)。
+| Check | Recorded outcome |
+| --- | --- |
+| Official `skill-creator` static validation | Passed: `Skill is valid!`. |
+| Python standard-library unit and CLI tests | 31 passed on Windows / Python 3.13.9, with no skips. |
+| Relative links, Python/JSON parsing, and skill structure | Passed. |
+| Standalone skill-directory relocation | CLI started from a temporary directory; the incomplete contract was correctly marked not ready. |
+| Release-content inspection | Inspected the file manifest and searched for local user paths, original project identifiers, common credential patterns, and private-key markers; no matches found in the release files. |
+| Release ZIP | Archive integrity and byte-for-byte agreement after extraction passed; `SHA256SUMS` supplied. |
+| Published release assets | Downloaded uploaded ZIP and checksums and confirmed the expected digest. |
+| GitHub Actions | Windows/Linux × Python 3.10/3.12. See [the actual runs](https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml) for each revision's result. |
 
-复核命令：
+Local verification:
 
 ```text
 python -m unittest discover -s tests -v
 python tools/validate_repository.py
 ```
 
-测试构造的任务与数字均为合成夹具，用于检验软件行为；不代表真实算法、数据集性能或创新性证据。
+Test tasks and numerical values are synthetic fixtures for software and procedure behavior. They represent no real algorithm, dataset performance, or novelty evidence.
 
-## 隔离上下文行为检查
+## Isolated-context behavior checks
 
-由一个未获得预期答案的隔离 Codex 子代理执行两个场景，读取技能和相应原始夹具；未训练、安装依赖或访问真实研究项目。主执行者核对其响应和计算结果。属于内部行为检查，不是外部独立审稿。
+A Codex subagent received the skill and raw fixtures for two scenarios without an expected answer. It performed no training, dependency installation, or access to the original research projects. The primary executor checked the returned behavior and calculations. This was an internal check with isolated context, not external peer review.
 
-| 场景与原始输入 | 实际观察 |
-|---|---|
-| `tests/fixtures/intake/project.md`：只提供漏检描述，缺少数据角色、基线结果与资源事实 | 停在项目事实访谈，询问任务/产物、划分与批次隔离、可改范围和执行资源；将论文目标与周期放在项目澄清之后。未提出模块或开始训练。 |
-| `tests/fixtures/result-review/`：主张“80→82 稳定提升”，同时提供全部种子与不同数据/训练预算 | 复算得到基线均值 80.00、候选均值 74.33、平均差 −5.67 点，保留失败种子；发现额外合成数据和双倍更新的混杂、模块审查与消融缺失，判为证据不支持成功交付。 |
+| Scenario and raw input | Observed response |
+| --- | --- |
+| `tests/fixtures/intake/project.md`: a missed-defect description with missing data roles, baseline results, and execution facts | Remained at project intake. Asked about task/artifacts, splits and batch isolation, allowed changes, and execution resources; deferred publication target and deadline until project facts were clarified. Proposed no module and started no training. |
+| `tests/fixtures/result-review/`: a claimed stable gain from 80 to 82, all seeds, and different data/training budgets | Recomputed baseline mean 80.00, candidate mean 74.33, and mean difference −5.67 points. Retained the failed seed; identified extra synthetic data, doubled updates, missing module review, and missing ablations. Found the evidence insufficient for successful handoff. |
 
-第二个场景只复算了 CSV 汇总，原始预测缺失，因此没有声称已重新计算 AP。该区分与技能要求一致。
+The second check recomputed CSV aggregates. Raw predictions were absent, so the agent did not claim to have recomputed AP. This distinction matches the skill's evidence requirements.
 
-行为检查针对本次环境中的指令遵循，不代表所有未来模型或任务都具有相同行为。
+These checks establish observed behavior for this environment and these cases. They do not establish identical future behavior across all models and projects.
 
-## 内部代码复核
+## Internal code review
 
-另一个隔离 Codex 子代理对运行登记工具进行了代码检查和临时目录探针。初轮发现并已补回归测试的六类问题：符号链接造成登记历史分叉、Windows 非 UTF-8 输出的提交后报错、首次初始化半写入、损坏历史被接受、JSON 指数溢出造成就绪判断不一致、极端数值/编码错误输出不一致。
+A separate isolated-context Codex subagent reviewed the run registry and exercised it in temporary directories. Its first pass identified six issue classes; each was fixed and covered by regression tests:
 
-对应修复：统一真实路径并拒绝多硬链接登记文件；UTF-8 CLI 输出；临时文件完整写入后原子发布；校验历史顺序与完成证据；拒绝非有限 JSON 数值；统一受控输入错误。
+| Issue class | Implemented correction |
+| --- | --- |
+| Symlink aliases could fork registry history | Canonicalize paths and reject registry files with multiple hard links. |
+| Non-UTF-8 Windows output could fail after commit | Emit CLI JSON as UTF-8. |
+| Initialization could expose partially written state | Write a complete temporary file, then publish atomically without replacing an existing target. |
+| Corrupt histories could be accepted | Validate history order and completion evidence. |
+| JSON exponent overflow could alter readiness | Reject non-finite JSON numeric values. |
+| Extreme numeric and encoding errors behaved inconsistently | Return controlled input errors. |
 
-原审查代理对修订版本重新运行上述六类旧复现，未发现这些修复中的残留问题；31/31 测试通过且无跳过。复核包含别名共锁与不分叉、强制 GBK 环境输出、初始化写入/发布故障、缺 pilot/证据历史、指数溢出、超大整数和非法 UTF-8。结论仅覆盖本次有界检查。
+The original reviewer reran the six reproductions against the corrected version and found no remaining failures in those reproductions. The 31 tests passed without skips. Checks included alias locking/history, forced GBK output, initialization write/publication faults, missing pilot/evidence history, exponent overflow, oversized integers, and invalid UTF-8.
 
-初轮还实际检查了三组各四进程的竞争登记，分别竞争相同指纹、相同候选、总次数上限；每组仅成功一次。后续更新的写入与替换故障注入未损坏原登记文件。此类检查只涉及临时文件，不模拟真实训练或科学结论。
+The initial review also exercised three groups of four competing processes: identical fingerprint, identical candidate, and a total-run limit. Each group accepted only one registration. Subsequent write/replace fault injection preserved the previous registry. These checks used temporary files and did not simulate real training or scientific conclusions.
 
-## 真实研究验收：尚未完成
+## Real research acceptance: outstanding
 
-本次发布不启动用户的论文项目或 GPU 训练。以下项目仍待实际使用验证：
+No user paper project or GPU training was started for this release. The following still require actual project validation:
 
-1. 在真实工业视觉项目中完成需求访谈，形成可执行协议与预算。
-2. 基于原始论文和代码完成机制查新，并接受项目目标对应的模块审查。
-3. 跑通一次小规模实现、训练、评价、结果复核与归档。
-4. 在真实执行环境中验证中断恢复、活动进程核实、无重复训练和资源管理。
-5. 完成必要公平对比、消融、稳定性/泛化/成本验证及最终结果审查。
+1. Complete intake for a real industrial vision problem and establish an executable protocol and budget.
+2. Check the mechanism against original papers and code and perform module review against the agreed publication target.
+3. Complete a small implementation, training, evaluation, result-review, and archival cycle.
+4. Verify interrupted-run recovery, actual process state, duplicate prevention, and resource management in that execution environment.
+5. Complete necessary fair comparisons, ablations, stability/generalization/cost evidence, and final result review.
 
-科研目标是否实现取决于这些真实证据。静态检查、代理同意、合成场景通过和软件测试通过分别报告，不替代真实科研验收。
+Research success requires those actual artifacts. Static checks, agent agreement, synthetic scenarios, software tests, and real scientific acceptance are reported separately.

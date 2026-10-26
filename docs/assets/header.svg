@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
+<title id="title">Industrial Vision Research</title>
+<desc id="desc">Original vector inspection schematic. Decorative illustration; no experimental results are depicted.</desc>
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0 0 L8 4 L0 8 Z" fill="#536870"/>
+</marker>
+<marker id="green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0 0 L8 4 L0 8 Z" fill="#166b5b"/>
+</marker>
+<marker id="amber" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0 0 L8 4 L0 8 Z" fill="#99602e"/>
+</marker>
+</defs>
+<rect width="1280" height="320" rx="14" fill="#f8faf8"/>
+<text x="48" y="48" font-family="Consolas, Liberation Mono, monospace" font-size="15" font-weight="600" fill="#166b5b" text-anchor="start">IVR  /  INDUSTRIAL VISION RESEARCH</text>
+<text x="48" y="122" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" fill="#182c35" text-anchor="start">Mechanisms worth testing.</text>
+<text x="48" y="179" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" fill="#182c35" text-anchor="start">Evidence worth keeping.</text>
+<text x="50" y="225" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#536870" text-anchor="start">Defect detection · Few-shot learning · Self-supervision</text>
+<path d="M48 261 H1232" stroke="#cbd7d4"/>
+<text x="48" y="296" font-family="Consolas, Liberation Mono, monospace" font-size="14" font-weight="600" fill="#166b5b" text-anchor="start">CODEX SKILL</text>
+<text x="257" y="296" font-family="Consolas, Liberation Mono, monospace" font-size="13" font-weight="400" fill="#536870" text-anchor="start">PROJECT INTAKE  /  BOUNDED EXPERIMENTS  /  SCIENTIFIC REVIEW</text>
+<rect x="836" y="45" width="212" height="177" rx="5" fill="#203a42" stroke="#203a42"/>
+<path d="M848 58 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M848 74 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M848 90 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M848 106 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M848 122 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M848 138 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M848 154 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M848 170 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M848 186 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M848 202 H1036" stroke="#43616a" stroke-width="1"/>
+<path d="M850 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M866 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M882 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M898 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M914 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M930 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M946 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M962 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M978 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M994 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M1010 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M1026 57 V210" stroke="#304f58" stroke-width="1"/>
+<path d="M905 70 L919 93 L911 111 L932 131 L923 147 L942 170 L935 194" fill="none" stroke="#dba26c" stroke-width="3" stroke-linejoin="round"/>
+<rect x="898" y="92" width="57" height="72" rx="2" fill="none" stroke="#b7dcd0" stroke-width="2"/>
+<path d="M955 98 L1081 75" fill="none" stroke="#166b5b" stroke-width="2" stroke-linejoin="round" stroke-dasharray="7 6"/>
+<path d="M955 164 L1081 182" fill="none" stroke="#166b5b" stroke-width="2" stroke-linejoin="round" stroke-dasharray="7 6"/>
+<rect x="1081" y="65" width="146" height="129" rx="5" fill="#eaf3ee" stroke="#88b7a6"/>
+<rect x="1091" y="76" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1109" y="76" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1127" y="76" width="14" height="14" rx="1" fill="#166b5b"/>
+<rect x="1145" y="76" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1163" y="76" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1181" y="76" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1199" y="76" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1091" y="94" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1109" y="94" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1127" y="94" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1145" y="94" width="14" height="14" rx="1" fill="#166b5b"/>
+<rect x="1163" y="94" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1181" y="94" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1199" y="94" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1091" y="112" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1109" y="112" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1127" y="112" width="14" height="14" rx="1" fill="#166b5b"/>
+<rect x="1145" y="112" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1163" y="112" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1181" y="112" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1199" y="112" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1091" y="130" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1109" y="130" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1127" y="130" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1145" y="130" width="14" height="14" rx="1" fill="#166b5b"/>
+<rect x="1163" y="130" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1181" y="130" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1199" y="130" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1091" y="148" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1109" y="148" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1127" y="148" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1145" y="148" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1163" y="148" width="14" height="14" rx="1" fill="#166b5b"/>
+<rect x="1181" y="148" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1199" y="148" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1091" y="166" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1109" y="166" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1127" y="166" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1145" y="166" width="14" height="14" rx="1" fill="#166b5b"/>
+<rect x="1163" y="166" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1181" y="166" width="14" height="14" rx="1" fill="#cbded5"/>
+<rect x="1199" y="166" width="14" height="14" rx="1" fill="#cbded5"/>
+<text x="836" y="243" font-family="Consolas, Liberation Mono, monospace" font-size="11" font-weight="400" fill="#536870" text-anchor="start">INSPECTION SCHEMATIC</text>
+<text x="1081" y="217" font-family="Consolas, Liberation Mono, monospace" font-size="11" font-weight="600" fill="#166b5b" text-anchor="start">MECHANISM</text>
+</svg>

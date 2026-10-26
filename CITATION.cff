@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this skill, please cite this software repository. The author identifier below is a GitHub account."
+type: software
+title: "Industrial Vision Research"
+abstract: "An experimental Codex skill for industrial vision research, project intake, mechanism review, bounded experiments, and evidence review."
+authors:
+  - name: "boji1334"
+    website: "https://github.com/boji1334"
+version: "0.1.0"
+date-released: 2026-10-26
+repository-code: "https://github.com/boji1334/industrial-vision-research"
+url: "https://github.com/boji1334/industrial-vision-research"
+license: MIT
+keywords:
+  - industrial vision
+  - defect detection
+  - few-shot learning
+  - self-supervised learning
+  - Codex skill
+  - reproducible research

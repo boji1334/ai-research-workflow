@@ -1,0 +1,180 @@
+<p align="center">
+  <img src="docs/assets/header.svg" alt="Industrial Vision Research：面向工业视觉实验的 Codex skill" width="100%">
+</p>
+
+<h1 align="center">Industrial Vision Research</h1>
+
+<p align="center">
+  <strong>从真实研究问题，到有证据支持、可复现的实验贡献。</strong><br>
+  面向 Codex 的工业视觉科研实验 skill，专注缺陷检测及相关的小样本、自监督研究。
+</p>
+
+<p align="center">
+  <a href="https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml"><img src="https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml/badge.svg" alt="软件验证"></a>
+  <a href="https://github.com/boji1334/industrial-vision-research/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/release-v0.1.0%20preview-166b5b" alt="v0.1.0 预览版"></a>
+  <a href="skills/industrial-vision-research/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="可选工具：Python 3.10 及以上"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT 许可证"></a>
+</p>
+
+<p align="center">
+  <a href="README.md">English</a> ·
+  <a href="#快速开始">快速开始</a> ·
+  <a href="#研究流程">研究流程</a> ·
+  <a href="docs/DESIGN.md">设计说明</a> ·
+  <a href="docs/VALIDATION.zh-CN.md">验证记录</a> ·
+  <a href="#引用">引用</a>
+</p>
+
+本技能为 Codex 提供一套可执行的研究规程：先了解已有项目和论文要求，再查新、设计机制、实现模块、做有限实验并审查证据。首版止于实验交付，包含代码、结果、消融、审查记录和复现材料。
+
+**当前状态：v0.1.0，实验性预览版。** 软件检查和隔离上下文的合成场景检查已记录在[验证记录](docs/VALIDATION.zh-CN.md)中。真实工业视觉项目的端到端有效性仍待验收；新颖性、效果与论文目标达成情况需要实际项目证据。
+
+## 核心能力
+
+| 能力 | 实际研究行为 |
+| --- | --- |
+| **先了解项目** | 先读材料、补齐项目事实，再确认目标期刊或级别、OA 偏好和可接受周期。 |
+| **查到机制层面** | 对比最近邻原文、公式、监督与实现路径，区分新机制、换名和已知增强。 |
+| **两道科学审查** | 小试前审查模块，扩大实验或确认贡献前审查结果。 |
+| **有限候选搜索** | 首次小试无提升后，最多追加两轮有依据的小规模修复；关闭失败候选后，在剩余预算内寻找不同机制。 |
+| **实验围绕贡献** | 按实际主张和论文目标安排强基线、公平对比、消融、稳定性、泛化与成本证据。 |
+| **有记录地接续** | 保留协议、候选族、运行标识、原始产物、失败、审查和下一步，支持跨会话继续。 |
+
+## 快速开始
+
+[技能本体](skills/industrial-vision-research)包含规程、参考文件、模板及可选 Python 工具。训练使用项目约定的执行环境；安装技能无需安装 Docker、AI Scientist v3 或上游科研套件。
+
+### 1. 安装技能
+
+若当前 Codex 会话中有官方 `skill-installer`，输入：
+
+```text
+$skill-installer Install the skill from https://github.com/boji1334/industrial-vision-research/tree/main/skills/industrial-vision-research
+```
+
+也可从 [Releases](https://github.com/boji1334/industrial-vision-research/releases) 下载独立技能 ZIP 和 `SHA256SUMS`，将解压后的 `industrial-vision-research` 文件夹放入研究项目的 `.agents/skills/`，最终目录为：
+
+```text
+你的研究项目/.agents/skills/industrial-vision-research/SKILL.md
+```
+
+更新同名技能前先比较版本和本地修改，安装后启动新的 Codex 会话。发现方式与作用范围见 [OpenAI 官方技能文档](https://developers.openai.com/codex/skills/)。
+
+### 2. 接手项目
+
+```text
+$industrial-vision-research 接手当前工业缺陷检测项目。
+先读已有材料并问清项目事实，再确认我的论文目标和周期，之后再提实验方案。
+```
+
+提供已有代码、数据说明与划分、基线结果、历史尝试和执行资源，或它们可访问的位置。缺失事实在访谈中补齐。调用技能先进入项目沟通；训练以约定好的研究协议为依据。
+
+### 3. 继续或审查
+
+```text
+$industrial-vision-research 继续当前研究。
+先核对最新协议、实际活动进程、候选历史和审查证据，再推进下一步。
+```
+
+```text
+$industrial-vision-research 审查这个模块与最近邻工作的差异，
+以及已有实验是否支持机制解释。这次只审查。
+```
+
+联网查新需要当前可用的检索和浏览能力；实际训练需要项目本地或远端环境、数据权限、算力与存储预算。有可用 Codex 子代理时，可用隔离上下文复核，审查记录注明实际方式。
+
+## 研究流程
+
+<p align="center">
+  <img src="docs/assets/research-loop.svg" alt="项目访谈与协议；查新、模块审查和小试；按证据修复或关闭候选；完整实验与结果审查；在预算边界交付实验或阶段成果" width="100%">
+</p>
+
+*图 1：外层选择机制，内层验证有限修复假设。关闭单个候选后，保留研究主线和剩余预算。*
+
+1. **明确项目。** 阅读材料、补齐未知事实，确认论文目标、时间、资源和评价协议。
+2. **选择并审查机制。** 从真实失败模式提出可证伪假设，对照最近邻、实现路径和可区分机制的实验。
+3. **做小规模验证。** 先检查实现与评价链路，再做小试；对负结果或不明确结果提出具体修复假设。
+4. **补齐实验。** 具备新颖性依据，且初步收益经结果复核后，完成协议要求的公平比较与贡献所需证据。
+5. **复核并交付。** 根据原始产物复算结论，报告目标是否达成、部分达成或仍缺依据。
+
+详细状态、产物、审查标准与终止逻辑见[设计说明](docs/DESIGN.md)。
+
+### 什么时候继续，什么时候结束？
+
+| 情况 | 后续动作 |
+| --- | --- |
+| 有提升，但新颖性不足 | 保留为已知增强，继续寻找有依据的新机制。 |
+| 有新颖性依据，但没有提升 | 复核实现、公平性和机制假设；首次小试后最多再做两轮有依据的小规模修复。 |
+| 修复用尽或机制被否定 | 关闭该候选；在原研究范围和剩余资源内提出不同机制。 |
+| 创新性依据、效果、必要实验和结果审查均达标 | 完成实验阶段交付。 |
+| 周期或资源到限，用户未同意延长 | 交真实阶段成果和未达项。 |
+
+SCI 顶刊目标需转化为项目级证据要求，覆盖强基线、稳定收益、机制、泛化和成本；没有适用于所有任务的统一涨点承诺。预计超期时提前说明差距，未经调整就遵守原周期。
+
+## 实验交付内容
+
+- 代码版本、配置、命令、环境、数据角色和评价协议。
+- 基线与候选结果、预先计划的有效重复、原始产物及权重位置。
+- 与贡献对应的对比、消融、机制、泛化和计算成本实验。
+- 模块审查、结果审查、负结果、局限和复现入口。
+
+研究产物保存在项目约定的位置；公共仓库分发技能和合成验证夹具。
+
+## 可选运行登记工具
+
+[`research_guard.py`](skills/industrial-vision-research/scripts/research_guard.py) 使用 Python 3.10+ 标准库，可检查协议结构、冻结摘要、登记唯一运行指纹、限制修复槽并记录证据文件哈希。
+
+```text
+python SKILL_DIR/scripts/research_guard.py check-contract --contract research-contract.json
+python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
+```
+
+将 `SKILL_DIR` 替换为已安装技能的实际目录。初始化、预留、完成与恢复操作见[命令说明](skills/industrial-vision-research/references/state-and-delivery.md)。
+
+登记工具负责机械检查，训练由 Codex 和项目执行工具启动。科学判断、实际进程、GPU 小时和磁盘配额需要分别核实。当前审查放行由研究规程和执行者落实，CLI 尚未校验审查报告是否批准。
+
+## 文档与验证
+
+| 文档 | 内容 |
+| --- | --- |
+| [设计说明](docs/DESIGN.md) | 范围、流程、审查、有限迭代和与 v3 的关系。 |
+| [中文验证记录](docs/VALIDATION.zh-CN.md) · [English](docs/VALIDATION.md) | 已完成的软件与内部行为检查，以及待做的真实研究验证。 |
+| [技能入口](skills/industrial-vision-research/SKILL.md) | Codex 实际加载的规程。 |
+| [设计来源](skills/industrial-vision-research/references/sources.md) | 固定到已查阅提交的上游来源与适配边界。 |
+| [发布说明](docs/RELEASE-NOTES-0.1.0.md) | 版本、安装和发布信息。 |
+| [变更记录](CHANGELOG.md) | 仓库改动。 |
+
+本地复核：
+
+```text
+python -m unittest discover -s tests -v
+python tools/validate_repository.py
+```
+
+当前版本有 31 项软件测试，并由 Windows/Linux × Python 3.10/3.12 CI 验证。合成场景检查覆盖访谈和证据审查，与算法性能基准分别报告。下一阶段重点是在真实项目中完成小试、恢复核对、公平对比与消融，建立科研有效性证据。
+
+## 与 AI Scientist v3 的关系
+
+Sakana AI 的 [AI Scientist v3](https://github.com/SakanaAI/AI-Scientist-v3) 为阶段接续和产物追踪提供了参考。其配套预印本 [*The Agentic Scientist: Orchestrating Coding Agents for Automated Scientific (Co-)Discovery*](https://arxiv.org/abs/2610.18933) 于 **2026 年 10 月 13 日**提交 arXiv。
+
+本项目独立维护，采用面向工业视觉的 Codex skill 形式，重点是项目访谈、有限实验与证据交付，未打包 v3 的运行器。ARS、Orchestra Research 与 K-Dense 分别提供了部分设计参考，具体范围见[来源记录](skills/industrial-vision-research/references/sources.md)。
+
+## 引用
+
+引用本软件可使用 GitHub 的 **Cite this repository** 或 [`CITATION.cff`](CITATION.cff)：
+
+```bibtex
+@software{industrial_vision_research_2026,
+  author  = {{boji1334}},
+  title   = {Industrial Vision Research},
+  version = {0.1.0},
+  year    = {2026},
+  url     = {https://github.com/boji1334/industrial-vision-research}
+}
+```
+
+[设计说明](docs/DESIGN.md)描述当前实现和局限。本版本尚无配套研究论文。
+
+欢迎通过 Issues 提交带版本号和脱敏最小例子的问题或建议。私有数据、凭据、未发表研究细节与权重保留在约定的项目存储位置。
+
+本仓库原创内容使用 [MIT License](LICENSE)。

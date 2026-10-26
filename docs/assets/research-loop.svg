@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="866" viewBox="0 0 1280 866" role="img" aria-labelledby="title desc">
+<title id="title">Research workflow and bounded candidate loop</title>
+<desc id="desc">Project intake precedes mechanism review and a small pilot. Negative or ambiguous pilot results can lead to at most two repair rounds, or candidate closure. Supported novelty and reviewed pilot gain proceed to full experiments and final result review. Project-level deadline and resource boundaries apply to every stage.</desc>
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0 0 L8 4 L0 8 Z" fill="#536870"/>
+</marker>
+<marker id="green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0 0 L8 4 L0 8 Z" fill="#166b5b"/>
+</marker>
+<marker id="amber" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0 0 L8 4 L0 8 Z" fill="#99602e"/>
+</marker>
+</defs>
+<rect width="1280" height="866" rx="14" fill="#f8faf8"/>
+<text x="40" y="42" font-family="Consolas, Liberation Mono, monospace" font-size="14" font-weight="600" fill="#166b5b" text-anchor="start">RESEARCH PROCEDURE</text>
+<text x="40" y="79" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700" fill="#182c35" text-anchor="start">One research question. Bounded candidate experiments.</text>
+<text x="40" y="108" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" fill="#536870" text-anchor="start">Protocol, candidate history, run identities and raw evidence persist across stages.</text>
+<path d="M40 129 H1240" stroke="#cbd7d4"/>
+<rect x="40" y="153" width="1200" height="112" rx="8" fill="white" stroke="#cbd7d4"/>
+<text x="60" y="180" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#536870" text-anchor="start">01 / ESTABLISH THE PROJECT</text>
+<text x="60" y="212" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Project facts → publication target → acceptance protocol</text>
+<text x="60" y="241" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Read the materials · clarify gaps · agree data roles, baselines, evidence, time and resource limits.</text>
+<rect x="40" y="327" width="275" height="151" rx="8" fill="white" stroke="#cbd7d4"/>
+<text x="60" y="354" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#536870" text-anchor="start">02 / DESIGN + REVIEW</text>
+<text x="60" y="386" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Mechanism review</text>
+<text x="60" y="415" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Bottleneck and nearest work</text>
+<text x="60" y="438" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Distinct, testable mechanism</text>
+<text x="60" y="461" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Implementation and pilot plan</text>
+<rect x="358" y="327" width="260" height="151" rx="8" fill="white" stroke="#cbd7d4"/>
+<text x="378" y="354" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#536870" text-anchor="start">03 / SMALL EXPERIMENT</text>
+<text x="378" y="386" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Pilot + diagnosis</text>
+<text x="378" y="415" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Code and evaluation checks</text>
+<text x="378" y="438" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Gain, failure or ambiguity</text>
+<text x="378" y="461" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Evidence-based next action</text>
+<rect x="661" y="327" width="270" height="151" rx="8" fill="#eaf3ee" stroke="#cbd7d4"/>
+<text x="681" y="354" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#166b5b" text-anchor="start">04 / BUILD THE EVIDENCE</text>
+<text x="681" y="386" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Full experiments</text>
+<text x="681" y="415" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Novelty + reviewed pilot gain</text>
+<text x="681" y="438" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Comparisons and ablations</text>
+<text x="681" y="461" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Stability, transfer and cost</text>
+<rect x="974" y="327" width="266" height="151" rx="8" fill="#eaf3ee" stroke="#cbd7d4"/>
+<text x="994" y="354" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#166b5b" text-anchor="start">05 / ACCEPT THE CLAIM</text>
+<text x="994" y="386" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Result review</text>
+<text x="994" y="415" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Recompute from raw artifacts</text>
+<text x="994" y="438" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Check fairness and uncertainty</text>
+<text x="994" y="461" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Compare against the protocol</text>
+<path d="M177 265 V327" fill="none" stroke="#536870" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M315 402 H358" fill="none" stroke="#536870" stroke-width="2" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M618 402 H661" fill="none" stroke="#166b5b" stroke-width="2" stroke-linejoin="round" marker-end="url(#green)"/>
+<path d="M931 402 H974" fill="none" stroke="#166b5b" stroke-width="2" stroke-linejoin="round" marker-end="url(#green)"/>
+<text x="638" y="315" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="400" fill="#166b5b" text-anchor="middle">reviewed gain</text>
+<path d="M1107 327 V298 H796 V327" fill="none" stroke="#166b5b" stroke-width="2" stroke-linejoin="round" stroke-dasharray="7 6" marker-end="url(#green)"/>
+<text x="839" y="289" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="400" fill="#166b5b" text-anchor="start">bounded follow-up</text>
+<rect x="358" y="535" width="295" height="132" rx="8" fill="#fbf2e8" stroke="#cbd7d4"/>
+<text x="378" y="562" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#99602e" text-anchor="start">NO GAIN / AMBIGUOUS</text>
+<text x="378" y="594" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Review + bounded repair</text>
+<text x="378" y="623" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">One justified hypothesis per round</text>
+<text x="378" y="646" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">At most 2 small repair rounds</text>
+<path d="M488 478 V535" fill="none" stroke="#99602e" stroke-width="2" stroke-linejoin="round" marker-end="url(#amber)"/>
+<path d="M567 535 V506 H641 V350 H618" fill="none" stroke="#99602e" stroke-width="2" stroke-linejoin="round" stroke-dasharray="7 6" marker-end="url(#amber)"/>
+<rect x="40" y="535" width="275" height="132" rx="8" fill="white" stroke="#cbd7d4"/>
+<text x="60" y="562" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#536870" text-anchor="start">EXHAUSTED / REFUTED</text>
+<text x="60" y="594" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Close this candidate</text>
+<text x="60" y="623" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Keep the negative evidence</text>
+<text x="60" y="646" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">New mechanism if budget remains</text>
+<path d="M358 601 H315" fill="none" stroke="#99602e" stroke-width="2" stroke-linejoin="round" marker-end="url(#amber)"/>
+<path d="M99 535 V478" fill="none" stroke="#536870" stroke-width="2" stroke-linejoin="round" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<text x="47" y="515" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="400" fill="#536870" text-anchor="start">new mechanism</text>
+<rect x="696" y="535" width="235" height="132" rx="8" fill="white" stroke="#cbd7d4"/>
+<text x="716" y="562" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#536870" text-anchor="start">INSUFFICIENT NOVELTY</text>
+<text x="716" y="594" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Known gain</text>
+<text x="716" y="623" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Preserve and attribute</text>
+<text x="716" y="646" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Continue mechanism search</text>
+<path d="M796 478 V535" fill="none" stroke="#536870" stroke-width="2" stroke-linejoin="round" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<rect x="974" y="535" width="266" height="132" rx="8" fill="#eaf3ee" stroke="#cbd7d4"/>
+<text x="994" y="562" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#166b5b" text-anchor="start">PROTOCOL SATISFIED</text>
+<text x="994" y="594" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Evidence handoff</text>
+<text x="994" y="623" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Code, results, reviews, limits</text>
+<text x="994" y="646" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Reproduction entrypoint</text>
+<path d="M1107 478 V535" fill="none" stroke="#166b5b" stroke-width="2" stroke-linejoin="round" marker-end="url(#green)"/>
+<rect x="40" y="704" width="1200" height="100" rx="8" fill="#182c35" stroke="#182c35"/>
+<text x="60" y="736" font-family="Consolas, Liberation Mono, monospace" font-size="13" font-weight="600" fill="#b7dcd0" text-anchor="start">GLOBAL STOP</text>
+<text x="60" y="769" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#ffffff" text-anchor="start">Deadline / resource boundary / user stop → hand off actual results and unresolved gaps.</text>
+<text x="40" y="841" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#536870" text-anchor="start">Solid arrows: main progression. Dashed arrows: conditional follow-up. All branches retain the agreed scope and budget.</text>
+</svg>

@@ -1,78 +1,185 @@
-# Industrial Vision Research
+<p align="center">
+  <img src="docs/assets/header.svg" alt="Industrial Vision Research — a Codex skill for industrial vision experiments" width="100%">
+</p>
 
-面向 **Codex** 的工业视觉科研实验 skill，专注缺陷检测及相关的小样本、自监督研究。先了解项目和论文要求，再推进查新、创新模块设计、有限实验和两道审查，交付可复现的实验与贡献证据。
+<h1 align="center">Industrial Vision Research</h1>
 
-**当前版本：v0.1.0，早期版本。** 已完成的检查与待验证范围见 [验证记录](docs/VALIDATION.md)。真实工业视觉项目的端到端有效性仍待验收；创新性、实验提升与期刊录用均以实际证据判断。
+<p align="center">
+  <strong>From a grounded research question to a reproducible experimental contribution.</strong><br>
+  A Codex skill for industrial vision, defect detection, and related few-shot and self-supervised research.
+</p>
 
-## 工作方式
+<p align="center">
+  <a href="https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml"><img src="https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml/badge.svg" alt="Software validation"></a>
+  <a href="https://github.com/boji1334/industrial-vision-research/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/release-v0.1.0%20preview-166b5b" alt="v0.1.0 preview"></a>
+  <a href="skills/industrial-vision-research/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="Optional CLI: Python 3.10 or newer"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT License"></a>
+</p>
 
-```text
-阅读已有材料 → 项目事实访谈 → 论文目标与周期 → 冻结评价协议
-    → 查新与机制设计 → 模块审查 → 有限小试
-    → 公平对比、消融及必要实验 → 结果审查 → 实验证据交付
-```
+<p align="center">
+  <a href="README.zh-CN.md">简体中文</a> ·
+  <a href="#quickstart">Quickstart</a> ·
+  <a href="#research-workflow">Workflow</a> ·
+  <a href="docs/DESIGN.md">Design note</a> ·
+  <a href="docs/VALIDATION.md">Validation</a> ·
+  <a href="#citation">Citation</a>
+</p>
 
-- **启动访谈是必要步骤。** 新项目不因引用 skill 就立即设计模块或训练。已有材料能回答的问题不重复问；项目事实澄清后再确认目标期刊/级别、OA 偏好与可接受周期。
-- **追求可证实的创新和效果。** 检查最近邻原文、公式、监督与实现路径；提升标准结合任务、强基线、波动、工程价值及目标论文要求制定。
-- **两道审查。** 模块审查检查创新与可实现性；结果审查核对原始产物、公平性、稳定性、消融解释和成本。审查意见必须定位证据、说明影响并给最小修复。
-- **有限失败投入。** 新颖但首次无提升的候选，最多追加两轮有明确依据的小规模修复；仍无收益则关闭。已知但有提升的增强保留，并与原基线分别记录。
-- **尊重周期与主线。** 预计超期时提前说明差距并询问取舍；没有调整就按原周期交阶段结果。关闭候选不等于放弃用户固定主线。
-- **首版到实验结束。** 交付代码、配置、结果、权重位置、对比/消融、审查和复现入口，写论文留给后续请求。
+Industrial Vision Research gives Codex a research procedure: understand the existing project, agree on the publication target and budget, examine the closest prior work, implement a mechanism, run bounded experiments, and review the evidence. The first release ends at an experimental handoff containing code, results, ablations, review records, and reproduction instructions.
 
-## 安装
+**Status — experimental preview.** Software checks and isolated synthetic behavior checks are documented in the [validation record](docs/VALIDATION.md). End-to-end effectiveness on a real industrial vision project remains to be evaluated. Novelty, performance gains, and publication readiness require project evidence.
 
-技能本体位于 [`skills/industrial-vision-research`](skills/industrial-vision-research)。核心是 Markdown 与模板，无需安装 Docker、AI Scientist v3 或上游科研套件。可选登记工具只需 Python 3.10+ 标准库。
+## What it adds
 
-[Releases](https://github.com/boji1334/industrial-vision-research/releases) 提供独立技能 ZIP 与 SHA-256 校验文件，解压后的 `industrial-vision-research/` 即为技能目录。
+| Capability | Research behavior |
+| --- | --- |
+| **Project-grounded intake** | Read existing materials and resolve project facts first; then confirm the journal or publication level, access preference, and deadline. |
+| **Mechanism-level novelty review** | Compare the closest papers, equations, supervision, and implementation paths. Separate a new mechanism from a renamed or known enhancement. |
+| **Two scientific reviews** | Review the proposed module before a pilot and the observed results before expanding experiments or accepting a contribution. |
+| **Bounded candidate search** | After an unsuccessful initial pilot, allow at most two justified small repair rounds. Close exhausted candidates and explore a different mechanism within the remaining budget. |
+| **Evidence matched to the claim** | Plan strong baselines, fair comparisons, ablations, stability, generalization, and cost measurements around the actual contribution and publication target. |
+| **Traceable continuation** | Preserve the project protocol, candidate history, run identities, raw artifacts, failures, reviews, and next action across sessions. |
 
-在 Codex 中调用已安装的官方 `skill-installer`：
+## Quickstart
+
+The [skill directory](skills/industrial-vision-research) contains the instructions, references, templates, and an optional Python helper. Install that directory into Codex; research runs use the execution environment agreed for your project. Docker and the upstream research frameworks are not dependencies of this skill.
+
+### 1. Install the skill
+
+If the official `skill-installer` is available in your Codex session:
 
 ```text
 $skill-installer Install the skill from https://github.com/boji1334/industrial-vision-research/tree/main/skills/industrial-vision-research
 ```
 
-也可以下载仓库，将该技能目录复制到研究项目的 `.agents/skills/industrial-vision-research`。例如在研究项目根目录使用 PowerShell（替换实际下载路径）：
-
-```powershell
-New-Item -ItemType Directory -Force -Path .agents/skills
-Copy-Item -Recurse -LiteralPath "D:/downloads/industrial-vision-research/skills/industrial-vision-research" -Destination ".agents/skills/industrial-vision-research"
-```
-
-安装后重新打开或重启 Codex 会话，使其发现技能。目录规则与发现机制参见 [OpenAI 官方技能文档](https://developers.openai.com/codex/skills/)。若同名目录已存在，先比较版本再更新，避免覆盖自定义内容。
-
-## 使用
+Alternatively, download the standalone skill ZIP and `SHA256SUMS` from [Releases](https://github.com/boji1334/industrial-vision-research/releases). Extract the `industrial-vision-research` directory into your research project's `.agents/skills/` directory. The resulting entrypoint should be:
 
 ```text
-$industrial-vision-research 接手当前工业缺陷检测项目，先读已有材料并问清项目事实，再确认论文目标和周期。
-
-$industrial-vision-research 继续当前研究，先核对最新协议、活动运行和候选审查，再推进下一步。
-
-$industrial-vision-research 审查这个模块与最近邻工作的差异，以及已有实验是否支持机制解释，暂不训练。
+YOUR_RESEARCH_PROJECT/.agents/skills/industrial-vision-research/SKILL.md
 ```
 
-第一次调用请提供项目材料或可访问的位置。实际训练需要用户已有或明确约定的环境、数据、执行权限、算力与存储预算。联网查新需要可用检索/浏览能力；缺少原文时保留待核结论。
+Compare versions before replacing an existing installation with local modifications. Start a new Codex session after installation. See the [official OpenAI skills documentation](https://developers.openai.com/codex/skills/) for skill discovery and scope.
 
-代理分工使用当前环境中可用的 Codex 子代理能力，按关键审查阶段启用，无需混合多家 AI。若子代理不可用，如实标记单代理自审。技能本身不实现常驻调度器，也不会自动创建定时任务。
+### 2. Begin with your project
 
-## 可选运行校验
+```text
+$industrial-vision-research Take over this industrial defect detection project.
+Read the existing materials and ask about unresolved project facts first.
+Then clarify my publication target and deadline before proposing experiments.
+```
 
-[`research_guard.py`](skills/industrial-vision-research/scripts/research_guard.py) 可以检查协议字段、登记运行、抑制重复指纹、限制同一候选最多两次修复，并保留证据摘要。它不执行记录的命令，也不自动判定实验提升或原创性。
+Provide access to the current code, dataset description and splits, baseline results, prior attempts, and execution resources that already exist. Missing facts are clarified during intake. Calling the skill starts this conversation; training follows an agreed project protocol.
 
-详细用法及边界见 [状态与交付](skills/industrial-vision-research/references/state-and-delivery.md)。已有运行管理工具时直接沿用，避免多份账本。
+### 3. Continue or request a review
 
-本地检查：
+```text
+$industrial-vision-research Continue this research. Check the latest protocol,
+active processes, candidate history, and review evidence before the next action.
+```
+
+```text
+$industrial-vision-research Review this module against its closest prior work
+and check whether the existing experiments support its mechanism. Review only.
+```
+
+Literature checks use the search and browsing tools available to Codex. Training uses your local or remote project environment, data access, compute, and storage budget. Codex subagents can review with isolated context when available; the review record identifies the actual arrangement.
+
+## Research workflow
+
+<p align="center">
+  <img src="docs/assets/research-loop.svg" alt="Project intake and protocol; mechanism review and pilot; bounded repairs or candidate closure; full experiments and result review; experimental handoff at the agreed budget boundary" width="100%">
+</p>
+
+*Figure 1. The outer loop selects mechanisms; the inner loop tests a bounded repair hypothesis. Candidate closure preserves the research question and its remaining budget.*
+
+1. **Establish the project.** Read the available evidence, resolve unknowns, and agree on the publication target, time, resources, and acceptance protocol.
+2. **Select and review a mechanism.** Connect a real failure mode to a falsifiable hypothesis; inspect its closest prior work, implementation, and discriminating experiments.
+3. **Run a small pilot.** Check the implementation and evaluation path before committing to full experiments. Investigate negative or ambiguous results using a specific repair hypothesis.
+4. **Build the evidence.** After supported novelty, preliminary gain, and initial result review, complete the fair comparisons and contribution-specific experiments required by the protocol.
+5. **Review and hand off.** Recompute what the raw artifacts support and report whether the research target was met, partially met, or remains unsupported.
+
+The [design note](docs/DESIGN.md) specifies artifacts, review criteria, failure decisions, completion conditions, and the relationship to AI Scientist v3.
+
+### When does it stop?
+
+| Situation | Next action |
+| --- | --- |
+| Gain with insufficient novelty | Preserve a known enhancement and its results; continue searching for a supported new mechanism. |
+| Supported novelty, no gain | Review implementation, fairness, and the mechanism hypothesis; run up to two justified small repair rounds after the initial pilot. |
+| Repairs exhausted or mechanism refuted | Close that candidate. A different mechanism may proceed within the original research scope and remaining resources. |
+| Novelty, gains, required experiments, and result review all satisfy the protocol | Deliver the completed experimental evidence package. |
+| Deadline or resource limit reached without an agreed extension | Deliver the actual stage results and unresolved gaps. |
+
+A top-tier journal target raises the agreed evidence requirements; it does not establish a universal score increase or guarantee acceptance. See [publication-target criteria](docs/DESIGN.md#publication-target-and-acceptance).
+
+## What you receive
+
+The handoff ties the research claim to its supporting artifacts:
+
+- Code revision, configuration, commands, environment, data roles, and evaluation protocol.
+- Baseline and candidate results, all planned valid repeats, raw artifact and checkpoint locations.
+- Relevant comparisons, ablations, mechanism tests, generalization, and computational costs.
+- Module and result review records, negative results, limitations, and a reproduction entrypoint.
+
+Research artifacts stay in the research project's agreed storage. This public repository distributes the skill and synthetic validation fixtures.
+
+## Optional run registry
+
+[`research_guard.py`](skills/industrial-vision-research/scripts/research_guard.py) uses the Python 3.10+ standard library. It checks contract structure, freezes a protocol digest, registers unique run fingerprints, limits repair slots, and records evidence-file hashes.
+
+```text
+python SKILL_DIR/scripts/research_guard.py check-contract --contract research-contract.json
+python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
+```
+
+Replace `SKILL_DIR` with your installed skill directory. The [command reference](skills/industrial-vision-research/references/state-and-delivery.md) covers initialization, reservation, completion, and recovery.
+
+The helper records runs; Codex and the project's execution tools launch them. Scientific judgments, actual process state, GPU hours, and storage quotas require separate verification. Review-report approval is currently a procedural responsibility rather than a CLI-enforced check.
+
+## Documentation and validation
+
+| Document | Purpose |
+| --- | --- |
+| [Design note](docs/DESIGN.md) | Scope, workflow, review logic, bounded iteration, and v3 comparison. |
+| [Validation record](docs/VALIDATION.md) | Completed software and internal behavior checks; outstanding research validation. |
+| [Skill entrypoint](skills/industrial-vision-research/SKILL.md) | The procedure loaded by Codex. |
+| [Design provenance](skills/industrial-vision-research/references/sources.md) | Upstream sources pinned to inspected revisions and the exact adaptation boundaries. |
+| [Release notes](docs/RELEASE-NOTES-0.1.0.md) | Versioned installation and release information. |
+| [Changelog](CHANGELOG.md) | Changes to the repository. |
+
+To verify the repository locally:
 
 ```text
 python -m unittest discover -s tests -v
 python tools/validate_repository.py
 ```
 
-## 设计来源
+The current release has 31 software tests and a Windows/Linux × Python 3.10/3.12 CI matrix. Synthetic checks exercise intake and evidence review; they are distinct from algorithm benchmarks. See [validation details](docs/VALIDATION.md).
 
-借鉴 AI Scientist v3 的阶段接续与产物追踪、ARS 的问题澄清与来源核验、Orchestra 的研究构思与两层实验循环，以及 K-Dense 的证据审查思路。所有核心说明、领域规则、模板与辅助代码在本仓库重新编写；未打包这些上游项目或将其作为运行依赖。
+Near-term work focuses on one real project pilot, recovery checks in its execution environment, and evidence from fair comparisons and ablations before claiming research effectiveness.
 
-固定到源码提交的来源、借鉴范围与冲突处理见 [来源说明](skills/industrial-vision-research/references/sources.md)。本项目独立维护，与上游团队无隶属关系。
+## Relationship to AI Scientist v3
 
-贡献问题或建议可通过 GitHub Issues 提交；请提供脱敏后的最小例子。发布技能仓库不包含公开用户研究数据、权重或未发表创新的授权。
+Sakana AI's [AI Scientist v3](https://github.com/SakanaAI/AI-Scientist-v3) is an inspiration for staged research execution and artifact continuity. Its associated preprint is [*The Agentic Scientist: Orchestrating Coding Agents for Automated Scientific (Co-)Discovery*](https://arxiv.org/abs/2610.18933), submitted on October 13, 2026.
 
-MIT License，见 [LICENSE](LICENSE)。
+This project implements a domain-specific Codex skill with project intake, bounded experiments, and experimental handoff. It is independently maintained and does not bundle the v3 runner. ARS, Orchestra Research, and K-Dense also informed specific design choices; [provenance and adaptation boundaries](skills/industrial-vision-research/references/sources.md) document each source.
+
+## Citation
+
+To reference this software, use the repository's **Cite this repository** entry or [`CITATION.cff`](CITATION.cff):
+
+```bibtex
+@software{industrial_vision_research_2026,
+  author  = {{boji1334}},
+  title   = {Industrial Vision Research},
+  version = {0.1.0},
+  year    = {2026},
+  url     = {https://github.com/boji1334/industrial-vision-research}
+}
+```
+
+The [design note](docs/DESIGN.md) describes the current implementation and its limitations. This project has no accompanying research paper at this release.
+
+Issues and contributions are welcome with a minimal, anonymized example and the relevant version. Keep private datasets, credentials, unpublished project details, and model weights in their agreed project storage.
+
+[MIT License](LICENSE) applies to this repository's original content.
