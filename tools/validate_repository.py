@@ -9,14 +9,14 @@ from urllib.parse import unquote
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills/industrial-vision-research"
+SKILL = ROOT / "skills/ai-research-workflow"
 
 
 def main():
     errors = []
-    for required in ("README.md", "LICENSE", "docs/VALIDATION.md", "skills/industrial-vision-research/SKILL.md",
-                     "skills/industrial-vision-research/agents/openai.yaml",
-                     "skills/industrial-vision-research/references/sources.md"):
+    for required in ("README.md", "LICENSE", "docs/VALIDATION.md", "skills/ai-research-workflow/SKILL.md",
+                     "skills/ai-research-workflow/agents/openai.yaml",
+                     "skills/ai-research-workflow/references/sources.md"):
         if not (ROOT / required).is_file():
             errors.append(f"missing {required}")
     files = [p for p in ROOT.rglob("*") if p.is_file() and not any(
@@ -44,7 +44,7 @@ def main():
             errors.append(f"{path.relative_to(ROOT)}: {exc}")
     entry = (SKILL / "SKILL.md").read_text(encoding="utf-8")
     match = re.match(r"\A---\n(.*?)\n---\n", entry, flags=re.S)
-    if not match or not re.search(r"^name: industrial-vision-research$", match[1], re.M):
+    if not match or not re.search(r"^name: ai-research-workflow$", match[1], re.M):
         errors.append("invalid or mismatched skill frontmatter name")
     if not match or not re.search(r"^description: .+", match[1], re.M):
         errors.append("missing skill description")

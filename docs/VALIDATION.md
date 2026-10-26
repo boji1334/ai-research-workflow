@@ -1,8 +1,10 @@
 # Validation record and acceptance scope
 
-**Version:** 0.1.0. **Date:** October 26, 2026. [简体中文](VALIDATION.zh-CN.md)
+**Version:** 0.1.1. **Date:** October 26, 2026. [简体中文](VALIDATION.zh-CN.md)
 
 This record distinguishes software validation, internal synthetic behavior checks, and real research acceptance. The first two have bounded completed checks; real-project effectiveness remains unvalidated.
+
+This update changes the project identity and vision-model emphasis while preserving the v0.1.0 research rules and helper behavior. The isolated behavior checks and internal code review below were conducted for v0.1.0. Software and static checks are rerun for this update; historical synthetic cases do not validate additional research domains.
 
 ## Software and packaging
 
@@ -15,7 +17,7 @@ This record distinguishes software validation, internal synthetic behavior check
 | Release-content inspection | Inspected the file manifest and searched for local user paths, original project identifiers, common credential patterns, and private-key markers; no matches found in the release files. |
 | Release ZIP | Archive integrity and byte-for-byte agreement after extraction passed; `SHA256SUMS` supplied. |
 | Published release assets | Downloaded uploaded ZIP and checksums and confirmed the expected digest. |
-| GitHub Actions | Windows/Linux × Python 3.10/3.12. See [the actual runs](https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml) for each revision's result. |
+| GitHub Actions | Windows/Linux × Python 3.10/3.12. See [the actual runs](https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml) for each revision's result. |
 
 Local verification:
 
@@ -60,7 +62,7 @@ The initial review also exercised three groups of four competing processes: iden
 
 No user paper project or GPU training was started for this release. The following still require actual project validation:
 
-1. Complete intake for a real industrial vision problem and establish an executable protocol and budget.
+1. Complete intake for a real vision research problem and establish an executable protocol and budget.
 2. Check the mechanism against original papers and code and perform module review against the agreed publication target.
 3. Complete a small implementation, training, evaluation, result-review, and archival cycle.
 4. Verify interrupted-run recovery, actual process state, duplicate prevention, and resource management in that execution environment.

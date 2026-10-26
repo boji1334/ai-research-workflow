@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="docs/assets/header.svg" alt="Industrial Vision Research — a Codex skill for industrial vision experiments" width="100%">
+  <img src="docs/assets/header.svg" alt="AI Research Workflow — a Codex skill focused on vision model research" width="100%">
 </p>
 
-<h1 align="center">Industrial Vision Research</h1>
+<h1 align="center">AI Research Workflow</h1>
 
 <p align="center">
   <strong>From a grounded research question to a reproducible experimental contribution.</strong><br>
-  A Codex skill for industrial vision, defect detection, and related few-shot and self-supervised research.
+  A Codex research skill focused on computer vision and vision models, including detection, segmentation, anomaly detection, and related few-shot and self-supervised learning.
 </p>
 
 <p align="center">
-  <a href="https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml"><img src="https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml/badge.svg" alt="Software validation"></a>
-  <a href="https://github.com/boji1334/industrial-vision-research/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/release-v0.1.0%20preview-166b5b" alt="v0.1.0 preview"></a>
-  <a href="skills/industrial-vision-research/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="Optional CLI: Python 3.10 or newer"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml"><img src="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml/badge.svg" alt="Software validation"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.1"><img src="https://img.shields.io/badge/release-v0.1.1%20preview-166b5b" alt="v0.1.1 preview"></a>
+  <a href="skills/ai-research-workflow/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="Optional CLI: Python 3.10 or newer"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT License"></a>
 </p>
 
@@ -25,9 +25,9 @@
   <a href="#citation">Citation</a>
 </p>
 
-Industrial Vision Research gives Codex a research procedure: understand the existing project, agree on the publication target and budget, examine the closest prior work, implement a mechanism, run bounded experiments, and review the evidence. The first release ends at an experimental handoff containing code, results, ablations, review records, and reproduction instructions.
+AI Research Workflow gives Codex a research procedure: understand the existing project, agree on the publication target and budget, examine the closest prior work, implement a mechanism, run bounded experiments, and review the evidence. The workflow ends at an experimental handoff containing code, results, ablations, review records, and reproduction instructions.
 
-**Status — experimental preview.** Software checks and isolated synthetic behavior checks are documented in the [validation record](docs/VALIDATION.md). End-to-end effectiveness on a real industrial vision project remains to be evaluated. Novelty, performance gains, and publication readiness require project evidence.
+**Status — experimental preview.** Software checks and isolated synthetic behavior checks are documented in the [validation record](docs/VALIDATION.md). End-to-end effectiveness on real vision research projects remains to be evaluated. Novelty, performance gains, and publication readiness require project evidence.
 
 ## What it adds
 
@@ -42,20 +42,20 @@ Industrial Vision Research gives Codex a research procedure: understand the exis
 
 ## Quickstart
 
-The [skill directory](skills/industrial-vision-research) contains the instructions, references, templates, and an optional Python helper. Install that directory into Codex; research runs use the execution environment agreed for your project. Docker and the upstream research frameworks are not dependencies of this skill.
+The [skill directory](skills/ai-research-workflow) contains the instructions, references, templates, and an optional Python helper. Install that directory into Codex; research runs use the execution environment agreed for your project. Docker and the upstream research frameworks are not dependencies of this skill.
 
 ### 1. Install the skill
 
 If the official `skill-installer` is available in your Codex session:
 
 ```text
-$skill-installer Install the skill from https://github.com/boji1334/industrial-vision-research/tree/main/skills/industrial-vision-research
+$skill-installer Install the skill from https://github.com/boji1334/ai-research-workflow/tree/main/skills/ai-research-workflow
 ```
 
-Alternatively, download the standalone skill ZIP and `SHA256SUMS` from [Releases](https://github.com/boji1334/industrial-vision-research/releases). Extract the `industrial-vision-research` directory into your research project's `.agents/skills/` directory. The resulting entrypoint should be:
+Alternatively, download the standalone skill ZIP and `SHA256SUMS` from [Releases](https://github.com/boji1334/ai-research-workflow/releases). Extract the `ai-research-workflow` directory into your research project's `.agents/skills/` directory. The resulting entrypoint should be:
 
 ```text
-YOUR_RESEARCH_PROJECT/.agents/skills/industrial-vision-research/SKILL.md
+YOUR_RESEARCH_PROJECT/.agents/skills/ai-research-workflow/SKILL.md
 ```
 
 Compare versions before replacing an existing installation with local modifications. Start a new Codex session after installation. See the [official OpenAI skills documentation](https://developers.openai.com/codex/skills/) for skill discovery and scope.
@@ -63,7 +63,7 @@ Compare versions before replacing an existing installation with local modificati
 ### 2. Begin with your project
 
 ```text
-$industrial-vision-research Take over this industrial defect detection project.
+$ai-research-workflow Take over this vision model research project.
 Read the existing materials and ask about unresolved project facts first.
 Then clarify my publication target and deadline before proposing experiments.
 ```
@@ -73,12 +73,12 @@ Provide access to the current code, dataset description and splits, baseline res
 ### 3. Continue or request a review
 
 ```text
-$industrial-vision-research Continue this research. Check the latest protocol,
+$ai-research-workflow Continue this research. Check the latest protocol,
 active processes, candidate history, and review evidence before the next action.
 ```
 
 ```text
-$industrial-vision-research Review this module against its closest prior work
+$ai-research-workflow Review this module against its closest prior work
 and check whether the existing experiments support its mechanism. Review only.
 ```
 
@@ -125,14 +125,14 @@ Research artifacts stay in the research project's agreed storage. This public re
 
 ## Optional run registry
 
-[`research_guard.py`](skills/industrial-vision-research/scripts/research_guard.py) uses the Python 3.10+ standard library. It checks contract structure, freezes a protocol digest, registers unique run fingerprints, limits repair slots, and records evidence-file hashes.
+[`research_guard.py`](skills/ai-research-workflow/scripts/research_guard.py) uses the Python 3.10+ standard library. It checks contract structure, freezes a protocol digest, registers unique run fingerprints, limits repair slots, and records evidence-file hashes.
 
 ```text
 python SKILL_DIR/scripts/research_guard.py check-contract --contract research-contract.json
 python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
 ```
 
-Replace `SKILL_DIR` with your installed skill directory. The [command reference](skills/industrial-vision-research/references/state-and-delivery.md) covers initialization, reservation, completion, and recovery.
+Replace `SKILL_DIR` with your installed skill directory. The [command reference](skills/ai-research-workflow/references/state-and-delivery.md) covers initialization, reservation, completion, and recovery.
 
 The helper records runs; Codex and the project's execution tools launch them. Scientific judgments, actual process state, GPU hours, and storage quotas require separate verification. Review-report approval is currently a procedural responsibility rather than a CLI-enforced check.
 
@@ -142,9 +142,9 @@ The helper records runs; Codex and the project's execution tools launch them. Sc
 | --- | --- |
 | [Design note](docs/DESIGN.md) | Scope, workflow, review logic, bounded iteration, and research-method synthesis. |
 | [Validation record](docs/VALIDATION.md) | Completed software and internal behavior checks; outstanding research validation. |
-| [Skill entrypoint](skills/industrial-vision-research/SKILL.md) | The procedure loaded by Codex. |
-| [Design provenance](skills/industrial-vision-research/references/sources.md) | Upstream sources pinned to inspected revisions and the exact adaptation boundaries. |
-| [Release notes](docs/RELEASE-NOTES-0.1.0.md) | Versioned installation and release information. |
+| [Skill entrypoint](skills/ai-research-workflow/SKILL.md) | The procedure loaded by Codex. |
+| [Design provenance](skills/ai-research-workflow/references/sources.md) | Upstream sources pinned to inspected revisions and the exact adaptation boundaries. |
+| [Release notes and migration](docs/RELEASE-NOTES-0.1.1.md) | Versioned installation and release information. |
 | [Changelog](CHANGELOG.md) | Changes to the repository. |
 
 To verify the repository locally:
@@ -160,7 +160,7 @@ Near-term work focuses on one real project pilot, recovery checks in its executi
 
 ## Research skills and methods
 
-This skill synthesizes the following research skills and workflow methods into a unified procedure tailored to industrial vision:
+This skill synthesizes the following research skills and workflow methods into a unified procedure focused on vision research:
 
 - [ARS-Codex · academic-research-suite](https://github.com/Imbad0202/academic-research-skills-codex): research-question clarification, staged progression, and source verification.
 - [Orchestra Research · brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas): research questions and mechanism hypotheses grounded in real bottlenecks.
@@ -168,19 +168,19 @@ This skill synthesizes the following research skills and workflow methods into a
 - [K-Dense · scientific-critical-thinking](https://github.com/K-Dense-AI/scientific-agent-skills/tree/593377bb048752abb0152deab9fbb1083a6087df/skills/scientific-critical-thinking): evidence quality, confounds, mechanism explanations, and result review.
 - [AI Scientist v3 · research workflow methods](https://github.com/SakanaAI/AI-Scientist-v3): stage continuity, run identities, and experimental-artifact tracking.
 
-The [provenance record](skills/industrial-vision-research/references/sources.md) documents the synthesis and adaptation of each source.
+The [provenance record](skills/ai-research-workflow/references/sources.md) documents the synthesis and adaptation of each source.
 
 ## Citation
 
 To reference this software, use the repository's **Cite this repository** entry or [`CITATION.cff`](CITATION.cff):
 
 ```bibtex
-@software{industrial_vision_research_2026,
+@software{ai_research_workflow_2026,
   author  = {{boji1334}},
-  title   = {Industrial Vision Research},
-  version = {0.1.0},
+  title   = {AI Research Workflow},
+  version = {0.1.1},
   year    = {2026},
-  url     = {https://github.com/boji1334/industrial-vision-research}
+  url     = {https://github.com/boji1334/ai-research-workflow}
 }
 ```
 

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
-<title id="title">Industrial Vision Research</title>
+<title id="title">AI Research Workflow</title>
 <desc id="desc">Original vector inspection schematic. Decorative illustration; no experimental results are depicted.</desc>
 <defs>
 <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
@@ -13,10 +13,10 @@
 </marker>
 </defs>
 <rect width="1280" height="320" rx="14" fill="#f8faf8"/>
-<text x="48" y="48" font-family="Consolas, Liberation Mono, monospace" font-size="15" font-weight="600" fill="#166b5b" text-anchor="start">IVR  /  INDUSTRIAL VISION RESEARCH</text>
+<text x="48" y="48" font-family="Consolas, Liberation Mono, monospace" font-size="15" font-weight="600" fill="#166b5b" text-anchor="start">AI RESEARCH  /  VISION MODELS</text>
 <text x="48" y="122" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" fill="#182c35" text-anchor="start">Mechanisms worth testing.</text>
 <text x="48" y="179" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" fill="#182c35" text-anchor="start">Evidence worth keeping.</text>
-<text x="50" y="225" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#536870" text-anchor="start">Defect detection · Few-shot learning · Self-supervision</text>
+<text x="50" y="225" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#536870" text-anchor="start">Vision models · Few-shot learning · Self-supervision</text>
 <path d="M48 261 H1232" stroke="#cbd7d4"/>
 <text x="48" y="296" font-family="Consolas, Liberation Mono, monospace" font-size="14" font-weight="600" fill="#166b5b" text-anchor="start">CODEX SKILL</text>
 <text x="257" y="296" font-family="Consolas, Liberation Mono, monospace" font-size="13" font-weight="400" fill="#536870" text-anchor="start">PROJECT INTAKE  /  BOUNDED EXPERIMENTS  /  SCIENTIFIC REVIEW</text>

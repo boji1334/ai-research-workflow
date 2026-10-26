@@ -1,6 +1,8 @@
 # 验证记录与验收范围
 
-版本：0.1.0。日期：2026-10-26。
+版本：0.1.1。日期：2026-10-26。
+
+本次更新仅调整项目名称与视觉模型定位，运行工具和核心研究规则沿用 v0.1.0。下述隔离行为检查和内部代码复核记录发生于 v0.1.0；本轮重新执行软件与静态检查，不将历史合成场景当作新增方向的科研验证。
 
 ## 软件与打包
 
@@ -12,7 +14,7 @@
 - 独立技能目录迁移检查：通过，临时目录中 CLI 可启动，未填写的协议被正确判为未就绪。
 - 发布文件的个人项目材料/凭据检查：已检查本地用户路径、两个原研究项目标识、常见 token/key 与私钥特征，未发现匹配；同时检查了发布文件清单。
 - Release ZIP：压缩包完整性与解压后的逐文件字节一致性检查通过，附 `SHA256SUMS`。
-- GitHub Actions：覆盖 Windows/Linux 与 Python 3.10/3.12；每次提交的实际结果见 [Actions](https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml)。
+- GitHub Actions：覆盖 Windows/Linux 与 Python 3.10/3.12；每次提交的实际结果见 [Actions](https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml)。
 
 复核命令：
 
@@ -50,7 +52,7 @@ python tools/validate_repository.py
 
 本次发布不启动用户的论文项目或 GPU 训练。以下项目仍待实际使用验证：
 
-1. 在真实工业视觉项目中完成需求访谈，形成可执行协议与预算。
+1. 在真实视觉研究项目中完成需求访谈，形成可执行协议与预算。
 2. 基于原始论文和代码完成机制查新，并接受项目目标对应的模块审查。
 3. 跑通一次小规模实现、训练、评价、结果复核与归档。
 4. 在真实执行环境中验证中断恢复、活动进程核实、无重复训练和资源管理。

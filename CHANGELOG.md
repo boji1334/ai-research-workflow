@@ -1,6 +1,13 @@
 # Changelog
 
-## Unreleased
+## 0.1.1 — 2026-10-26
+
+- Rename the project and skill to AI Research Workflow (`ai-research-workflow`).
+- Describe the scope as computer vision and vision model research; retain industrial vision as an application.
+- Preserve existing intake, experiment, review, acceptance, stopping, and helper behavior.
+- Update installation paths, links, citation metadata, and bilingual migration notes.
+
+### Repository presentation since 0.1.0
 
 - Add English and Chinese project pages, original SVG research diagrams, and a technical design note.
 - Document review enforcement boundaries, candidate closure, project stopping conditions, and validation status.

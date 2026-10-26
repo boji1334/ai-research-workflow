@@ -1,14 +1,14 @@
-# Industrial Vision Research: design note
+# AI Research Workflow: design note
 
-**Implementation:** v0.1.0 experimental skill. **Document date:** October 26, 2026.
+**Implementation:** v0.1.1 experimental skill. **Document date:** October 26, 2026.
 
-This note describes the procedure implemented by the [skill](../skills/industrial-vision-research/SKILL.md), its optional run registry, and its current validation limits. It is project documentation. Research effectiveness on a real industrial vision project is an open validation task.
+This note describes the procedure implemented by the [skill](../skills/ai-research-workflow/SKILL.md), its optional run registry, and its current validation limits. It is project documentation. Research effectiveness on a real vision research project is an open validation task.
 
 ## 1. Problem and scope
 
-The skill addresses a specific research workflow: a researcher has an industrial vision problem and needs to develop a defensible mechanism, determine whether it improves on fair baselines, and assemble sufficient experimental evidence for a stated publication goal.
+The skill addresses a specific research workflow: a researcher has a vision model research problem and needs to develop a defensible mechanism, determine whether it improves on fair baselines, and assemble sufficient experimental evidence for a stated publication goal.
 
-The first version covers defect detection and localization, along with directly related few-shot and self-supervised research. It supports an existing project or a project whose facts are established through intake. Its terminal output is an experimental evidence package. Manuscript drafting and submission are separate follow-on requests.
+The skill focuses on computer vision and vision model research, including detection, segmentation, anomaly detection, and related few-shot and self-supervised research. Industrial vision is one application. The rename preserves the established intake, experiment, review, and stopping rules; it does not introduce protocols for unrelated AI domains. It supports an existing project or a project whose facts are established through intake. Its terminal output is an experimental evidence package. Manuscript drafting and submission are separate follow-on requests.
 
 The guiding principle is that a contribution must connect **a real bottleneck → a distinct mechanism → a testable prediction → observable evidence**. A renamed module, an isolated best seed, or a finished training command does not establish that chain.
 
@@ -28,7 +28,7 @@ The research lead, implementer, and reviewer are responsibilities, not a require
 
 ## 3. Project intake and protocol
 
-Intake first reads the existing project material, then asks only about unresolved requirements or facts. Project questions precede publication questions. The [intake reference](../skills/industrial-vision-research/references/intake.md) defines the relevant facts.
+Intake first reads the existing project material, then asks only about unresolved requirements or facts. Project questions precede publication questions. The [intake reference](../skills/ai-research-workflow/references/intake.md) defines the relevant facts.
 
 | Phase | Facts that must be established |
 | --- | --- |
@@ -37,7 +37,7 @@ Intake first reads the existing project material, then asks only about unresolve
 | Publication | Target journal or level, access preference, applicable requirements, start date, deadline, and timezone. |
 | Acceptance | Primary metric and direction, meaningful effect and rationale, planned repeats, fairness controls, and required evidence. |
 
-The [contract template](../skills/industrial-vision-research/assets/research-contract.json) records these decisions. Structural completeness is checked by the helper; the facts and scientific adequacy require researcher and execution-context evidence.
+The [contract template](../skills/ai-research-workflow/assets/research-contract.json) records these decisions. Structural completeness is checked by the helper; the facts and scientific adequacy require researcher and execution-context evidence.
 
 ### Publication target and acceptance
 
@@ -66,7 +66,7 @@ There is no fixed percentage-point threshold that implies top-tier readiness acr
 | Result review | Raw results, code, evaluator, protocol and claim | Recomputed metrics, confounds, stability, gaps, review verdict | Complete evidence or bounded follow-up |
 | Handoff | Evidence and review records | Reproduction entrypoint, artifacts, supported claims, negative results, limits | Research success or partial delivery |
 
-Projects can reuse their existing ledger and artifact layout. These are information requirements; they do not require a second competing directory structure. The [candidate](../skills/industrial-vision-research/assets/candidate.md) and [review](../skills/industrial-vision-research/assets/review.md) templates provide starting records.
+Projects can reuse their existing ledger and artifact layout. These are information requirements; they do not require a second competing directory structure. The [candidate](../skills/ai-research-workflow/assets/candidate.md) and [review](../skills/ai-research-workflow/assets/review.md) templates provide starting records.
 
 ## 5. Two scientific reviews
 
@@ -86,7 +86,7 @@ Available decisions are `evidence_complete`, `needs_bounded_followup`, `gain_wit
 
 Every material finding locates evidence and states its effect on the claim, severity, smallest justified correction, and verification method. Reviewers receive the research question and actual artifacts without an expected verdict. Conflicting judgments are resolved against sources, recomputation, or a discriminating small test. Agreement alone is not empirical evidence.
 
-**Current enforcement boundary:** the instructions require module and result review at key decisions. They do not mandate a new isolated review agent before every repair round, and the registry does not validate a review report's approval. Those distinctions remain explicit in v0.1.0. See the [review procedure](../skills/industrial-vision-research/references/review.md).
+**Current enforcement boundary:** the instructions require module and result review at key decisions. They do not mandate a new isolated review agent before every repair round, and the registry does not validate a review report's approval. Those distinctions remain explicit in v0.1.1. See the [review procedure](../skills/ai-research-workflow/references/review.md).
 
 ## 6. Negative results and bounded search
 
@@ -104,7 +104,7 @@ An initial pilot may be followed by **at most two small repair rounds**. Each ro
 
 The same mechanism retains its candidate-family identity across renaming, small parameter changes, and configuration splits. A closed candidate can be followed by a genuinely different mechanism within the fixed research question and remaining global budget. A fresh name or registry file does not reset history.
 
-The helper conservatively consumes a repair slot when it is reserved, including a later cancelled or invalid run. A project that needs a more detailed infrastructure-failure policy must specify and retain it in its protocol. See [experiment rules](../skills/industrial-vision-research/references/experiments.md).
+The helper conservatively consumes a repair slot when it is reserved, including a later cancelled or invalid run. A project that needs a more detailed infrastructure-failure policy must specify and retain it in its protocol. See [experiment rules](../skills/ai-research-workflow/references/experiments.md).
 
 ## 7. Run tracking and reproducibility
 
@@ -112,7 +112,7 @@ Associate each run with the protocol, code revision, data version, configuration
 
 The optional registry offers `check-contract`, `init`, `reserve`, `finish`, and `status`. It freezes a contract digest, serializes updates using local file locking, rejects duplicate fingerprints, checks active candidate registrations and total run limits, and records evidence-file SHA-256 hashes. Initialization publishes a fully written registry without replacing an existing one on supported local filesystems.
 
-The registry does not compute scientific metrics, inspect training processes, recognize equivalent mechanisms, meter GPU use, or validate a reviewer verdict. An evidence hash identifies bytes; it does not prove scientific correctness or provide tamper-proof auditing. Existing equivalent project tooling may be used instead. See [registry and recovery details](../skills/industrial-vision-research/references/state-and-delivery.md).
+The registry does not compute scientific metrics, inspect training processes, recognize equivalent mechanisms, meter GPU use, or validate a reviewer verdict. An evidence hash identifies bytes; it does not prove scientific correctness or provide tamper-proof auditing. Existing equivalent project tooling may be used instead. See [registry and recovery details](../skills/ai-research-workflow/references/state-and-delivery.md).
 
 ## 8. Completion and handoff
 
@@ -128,7 +128,7 @@ Handoff includes source revision, reproducible configurations and commands, envi
 
 ## 9. Research skills and methods
 
-The skill synthesizes complementary research skills and workflow methods into a procedure tailored to industrial vision.
+The skill synthesizes complementary research skills and workflow methods into a procedure focused on vision model research.
 
 | Research skill or method | Contribution to the synthesis |
 | --- | --- |
@@ -138,12 +138,12 @@ The skill synthesizes complementary research skills and workflow methods into a 
 | K-Dense · `scientific-critical-thinking` | Evidence quality, confounds, mechanism explanations, and result review. |
 | AI Scientist v3 · research workflow methods | Stage continuity, run identities, and experimental-artifact tracking. |
 
-The [provenance record](../skills/industrial-vision-research/references/sources.md) links the inspected revisions and documents each source's adaptation to this skill.
+The [provenance record](../skills/ai-research-workflow/references/sources.md) links the inspected revisions and documents each source's adaptation to this skill.
 
 ## 10. Validation and open work
 
 The [validation record](VALIDATION.md) distinguishes static checks, 31 software tests, packaging, synthetic isolated-context checks, and internal code review. The CI matrix covers Windows/Linux and Python 3.10/3.12. These results validate the tested software behavior and specific procedure examples.
 
-The next research validation task is a real industrial vision pilot: complete intake, check the mechanism against original sources, run small implementation and training checks, verify recovery and resource control, and audit fair comparisons and ablations. Scientific effectiveness remains unmeasured until those artifacts exist.
+The next research validation task is a real vision research pilot: complete intake, check the mechanism against original sources, run small implementation and training checks, verify recovery and resource control, and audit fair comparisons and ablations. Scientific effectiveness remains unmeasured until those artifacts exist.
 
 Potential stronger enforcement of review approvals should be evaluated against observed use. It is not a claimed capability of the current helper.

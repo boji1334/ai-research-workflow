@@ -15,7 +15,7 @@ from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "skills/industrial-vision-research/scripts/research_guard.py"
+SCRIPT = ROOT / "skills/ai-research-workflow/scripts/research_guard.py"
 SPEC = importlib.util.spec_from_file_location("research_guard", SCRIPT)
 guard = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(guard)
@@ -73,7 +73,7 @@ class GuardTests(unittest.TestCase):
         return guard.finish(self.registry, run["id"], outcome, self.evidence)
 
     def test_template_is_not_ready(self):
-        template = guard.read_json(ROOT / "skills/industrial-vision-research/assets/research-contract.json")
+        template = guard.read_json(ROOT / "skills/ai-research-workflow/assets/research-contract.json")
         self.assertTrue(guard.contract_errors(template))
 
     def test_project_gaps_and_wrong_intake_order_stop_reservation(self):

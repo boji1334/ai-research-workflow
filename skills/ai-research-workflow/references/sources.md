@@ -15,7 +15,7 @@
 
 - 来源：[academic-research-suite/SKILL.md](https://github.com/Imbad0202/academic-research-skills-codex/blob/c923a914eaa45fe1435ad3ac6641a8f251167675/skills/academic-research-suite/SKILL.md)。
 - 借鉴：研究问题未明确时先澄清、按阶段读取必要材料、文献与研究材料的可追溯性。
-- 适配：针对工业视觉明确数据角色、学习协议、基线、历史尝试、资源、论文目标和周期。
+- 适配：面向视觉模型研究明确数据角色、学习协议、基线、历史尝试、资源、论文目标和周期。
 - 边界：未复制其总路由、工作流或 agent 提示词。文献身份核验与命题支持、新颖性证明分别处理。其医学/临床特定分级不套用于机器学习实验。
 
 ## Orchestra Research — 构思与内外两层循环

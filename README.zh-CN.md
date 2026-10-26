@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="docs/assets/header.svg" alt="Industrial Vision Research：面向工业视觉实验的 Codex skill" width="100%">
+  <img src="docs/assets/header.svg" alt="AI Research Workflow：倾向视觉模型研究的 Codex skill" width="100%">
 </p>
 
-<h1 align="center">Industrial Vision Research</h1>
+<h1 align="center">AI Research Workflow</h1>
 
 <p align="center">
   <strong>从真实研究问题，到有证据支持、可复现的实验贡献。</strong><br>
-  面向 Codex 的工业视觉科研实验 skill，专注缺陷检测及相关的小样本、自监督研究。
+  面向 Codex、倾向计算机视觉与视觉模型研究的科研实验 skill，涵盖检测、分割、异常检测及相关小样本、自监督研究。工业视觉是应用场景之一。
 </p>
 
 <p align="center">
-  <a href="https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml"><img src="https://github.com/boji1334/industrial-vision-research/actions/workflows/validate.yml/badge.svg" alt="软件验证"></a>
-  <a href="https://github.com/boji1334/industrial-vision-research/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/release-v0.1.0%20preview-166b5b" alt="v0.1.0 预览版"></a>
-  <a href="skills/industrial-vision-research/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="可选工具：Python 3.10 及以上"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml"><img src="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml/badge.svg" alt="软件验证"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.1"><img src="https://img.shields.io/badge/release-v0.1.1%20preview-166b5b" alt="v0.1.1 预览版"></a>
+  <a href="skills/ai-research-workflow/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="可选工具：Python 3.10 及以上"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT 许可证"></a>
 </p>
 
@@ -25,9 +25,9 @@
   <a href="#引用">引用</a>
 </p>
 
-本技能为 Codex 提供一套可执行的研究规程：先了解已有项目和论文要求，再查新、设计机制、实现模块、做有限实验并审查证据。首版止于实验交付，包含代码、结果、消融、审查记录和复现材料。
+本技能为 Codex 提供一套可执行的研究规程：先了解已有项目和论文要求，再查新、设计机制、实现模块、做有限实验并审查证据。工作流止于实验交付，包含代码、结果、消融、审查记录和复现材料。
 
-**当前状态：v0.1.0，实验性预览版。** 软件检查和隔离上下文的合成场景检查已记录在[验证记录](docs/VALIDATION.zh-CN.md)中。真实工业视觉项目的端到端有效性仍待验收；新颖性、效果与论文目标达成情况需要实际项目证据。
+**当前状态：v0.1.1，实验性预览版。** 软件检查和隔离上下文的合成场景检查已记录在[验证记录](docs/VALIDATION.zh-CN.md)中。真实视觉研究项目的端到端有效性仍待验收；新颖性、效果与论文目标达成情况需要实际项目证据。
 
 ## 核心能力
 
@@ -42,20 +42,20 @@
 
 ## 快速开始
 
-[技能本体](skills/industrial-vision-research)包含规程、参考文件、模板及可选 Python 工具。训练使用项目约定的执行环境；安装技能无需安装 Docker、AI Scientist v3 或上游科研套件。
+[技能本体](skills/ai-research-workflow)包含规程、参考文件、模板及可选 Python 工具。训练使用项目约定的执行环境；安装技能无需安装 Docker、AI Scientist v3 或上游科研套件。
 
 ### 1. 安装技能
 
 若当前 Codex 会话中有官方 `skill-installer`，输入：
 
 ```text
-$skill-installer Install the skill from https://github.com/boji1334/industrial-vision-research/tree/main/skills/industrial-vision-research
+$skill-installer Install the skill from https://github.com/boji1334/ai-research-workflow/tree/main/skills/ai-research-workflow
 ```
 
-也可从 [Releases](https://github.com/boji1334/industrial-vision-research/releases) 下载独立技能 ZIP 和 `SHA256SUMS`，将解压后的 `industrial-vision-research` 文件夹放入研究项目的 `.agents/skills/`，最终目录为：
+也可从 [Releases](https://github.com/boji1334/ai-research-workflow/releases) 下载独立技能 ZIP 和 `SHA256SUMS`，将解压后的 `ai-research-workflow` 文件夹放入研究项目的 `.agents/skills/`，最终目录为：
 
 ```text
-你的研究项目/.agents/skills/industrial-vision-research/SKILL.md
+你的研究项目/.agents/skills/ai-research-workflow/SKILL.md
 ```
 
 更新同名技能前先比较版本和本地修改，安装后启动新的 Codex 会话。发现方式与作用范围见 [OpenAI 官方技能文档](https://developers.openai.com/codex/skills/)。
@@ -63,7 +63,7 @@ $skill-installer Install the skill from https://github.com/boji1334/industrial-v
 ### 2. 接手项目
 
 ```text
-$industrial-vision-research 接手当前工业缺陷检测项目。
+$ai-research-workflow 接手当前视觉模型研究项目。
 先读已有材料并问清项目事实，再确认我的论文目标和周期，之后再提实验方案。
 ```
 
@@ -72,12 +72,12 @@ $industrial-vision-research 接手当前工业缺陷检测项目。
 ### 3. 继续或审查
 
 ```text
-$industrial-vision-research 继续当前研究。
+$ai-research-workflow 继续当前研究。
 先核对最新协议、实际活动进程、候选历史和审查证据，再推进下一步。
 ```
 
 ```text
-$industrial-vision-research 审查这个模块与最近邻工作的差异，
+$ai-research-workflow 审查这个模块与最近邻工作的差异，
 以及已有实验是否支持机制解释。这次只审查。
 ```
 
@@ -122,14 +122,14 @@ SCI 顶刊目标需转化为项目级证据要求，覆盖强基线、稳定收�
 
 ## 可选运行登记工具
 
-[`research_guard.py`](skills/industrial-vision-research/scripts/research_guard.py) 使用 Python 3.10+ 标准库，可检查协议结构、冻结摘要、登记唯一运行指纹、限制修复槽并记录证据文件哈希。
+[`research_guard.py`](skills/ai-research-workflow/scripts/research_guard.py) 使用 Python 3.10+ 标准库，可检查协议结构、冻结摘要、登记唯一运行指纹、限制修复槽并记录证据文件哈希。
 
 ```text
 python SKILL_DIR/scripts/research_guard.py check-contract --contract research-contract.json
 python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
 ```
 
-将 `SKILL_DIR` 替换为已安装技能的实际目录。初始化、预留、完成与恢复操作见[命令说明](skills/industrial-vision-research/references/state-and-delivery.md)。
+将 `SKILL_DIR` 替换为已安装技能的实际目录。初始化、预留、完成与恢复操作见[命令说明](skills/ai-research-workflow/references/state-and-delivery.md)。
 
 登记工具负责机械检查，训练由 Codex 和项目执行工具启动。科学判断、实际进程、GPU 小时和磁盘配额需要分别核实。当前审查放行由研究规程和执行者落实，CLI 尚未校验审查报告是否批准。
 
@@ -139,9 +139,9 @@ python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
 | --- | --- |
 | [设计说明](docs/DESIGN.md) | 范围、流程、审查、有限迭代和科研技能整合。 |
 | [中文验证记录](docs/VALIDATION.zh-CN.md) · [English](docs/VALIDATION.md) | 已完成的软件与内部行为检查，以及待做的真实研究验证。 |
-| [技能入口](skills/industrial-vision-research/SKILL.md) | Codex 实际加载的规程。 |
-| [设计来源](skills/industrial-vision-research/references/sources.md) | 固定到已查阅提交的上游来源与适配边界。 |
-| [发布说明](docs/RELEASE-NOTES-0.1.0.md) | 版本、安装和发布信息。 |
+| [技能入口](skills/ai-research-workflow/SKILL.md) | Codex 实际加载的规程。 |
+| [设计来源](skills/ai-research-workflow/references/sources.md) | 固定到已查阅提交的上游来源与适配边界。 |
+| [发布与迁移说明](docs/RELEASE-NOTES-0.1.1.md) | 版本、安装和发布信息。 |
 | [变更记录](CHANGELOG.md) | 仓库改动。 |
 
 本地复核：
@@ -155,7 +155,7 @@ python tools/validate_repository.py
 
 ## 整合的科研技能与方法
 
-本技能综合以下科研技能与研究流程方法，针对工业视觉重新设计为统一工作流：
+本技能综合以下科研技能与研究流程方法，面向视觉模型研究整合为统一工作流：
 
 - [ARS-Codex · academic-research-suite](https://github.com/Imbad0202/academic-research-skills-codex)：研究问题澄清、分阶段推进与来源核验。
 - [Orchestra Research · brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas)：从真实瓶颈形成研究问题与机制假设。
@@ -163,19 +163,19 @@ python tools/validate_repository.py
 - [K-Dense · scientific-critical-thinking](https://github.com/K-Dense-AI/scientific-agent-skills/tree/593377bb048752abb0152deab9fbb1083a6087df/skills/scientific-critical-thinking)：证据质量、混杂因素、机制解释与结果审查。
 - [AI Scientist v3 · 研究流程方法](https://github.com/SakanaAI/AI-Scientist-v3)：研究阶段接续、运行标识与实验产物追踪。
 
-具体整合范围与适配记录见[来源说明](skills/industrial-vision-research/references/sources.md)。
+具体整合范围与适配记录见[来源说明](skills/ai-research-workflow/references/sources.md)。
 
 ## 引用
 
 引用本软件可使用 GitHub 的 **Cite this repository** 或 [`CITATION.cff`](CITATION.cff)：
 
 ```bibtex
-@software{industrial_vision_research_2026,
+@software{ai_research_workflow_2026,
   author  = {{boji1334}},
-  title   = {Industrial Vision Research},
-  version = {0.1.0},
+  title   = {AI Research Workflow},
+  version = {0.1.1},
   year    = {2026},
-  url     = {https://github.com/boji1334/industrial-vision-research}
+  url     = {https://github.com/boji1334/ai-research-workflow}
 }
 ```
 

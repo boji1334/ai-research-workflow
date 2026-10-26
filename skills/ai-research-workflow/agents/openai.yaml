@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Research Workflow"
+  short_description: "面向视觉模型，先访谈项目，再查新设计模块、有限实验与双重审查"
+  default_prompt: "使用 $ai-research-workflow 接手这个项目，先了解已有材料并澄清项目事实，再询问论文目标和周期，之后推进实验。"
