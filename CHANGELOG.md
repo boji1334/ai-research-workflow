@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2 — 2026-10-26
+
+- Make baseline verification and pilot result review explicit before expanding experiments.
+- Add declared control/ablation records so negative controls do not block valid confirmation or trigger method repairs; all records retain global budget checks.
+- Reject the run registry and aliases as self-mutating result evidence.
+- Clarify review-only scope, candidate-family continuity, vision metrics, and storage estimates.
+- Add nine unit/CLI regressions, a pre-pilot audit, and a real-project pilot checklist.
+
 ## 0.1.1 — 2026-10-26
 
 - Rename the project and skill to AI Research Workflow (`ai-research-workflow`).

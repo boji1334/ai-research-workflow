@@ -1,6 +1,6 @@
 # AI Research Workflow: design note
 
-**Implementation:** v0.1.1 experimental skill. **Document date:** October 26, 2026.
+**Implementation:** v0.1.2 experimental skill. **Document date:** October 26, 2026.
 
 This note describes the procedure implemented by the [skill](../skills/ai-research-workflow/SKILL.md), its optional run registry, and its current validation limits. It is project documentation. Research effectiveness on a real vision research project is an open validation task.
 
@@ -86,7 +86,7 @@ Available decisions are `evidence_complete`, `needs_bounded_followup`, `gain_wit
 
 Every material finding locates evidence and states its effect on the claim, severity, smallest justified correction, and verification method. Reviewers receive the research question and actual artifacts without an expected verdict. Conflicting judgments are resolved against sources, recomputation, or a discriminating small test. Agreement alone is not empirical evidence.
 
-**Current enforcement boundary:** the instructions require module and result review at key decisions. They do not mandate a new isolated review agent before every repair round, and the registry does not validate a review report's approval. Those distinctions remain explicit in v0.1.1. See the [review procedure](../skills/ai-research-workflow/references/review.md).
+**Current enforcement boundary:** the instructions require module and result review at key decisions. They do not mandate a new isolated review agent before every repair round, and the registry does not validate a review report's approval. Those distinctions remain explicit in v0.1.2. See the [review procedure](../skills/ai-research-workflow/references/review.md).
 
 ## 6. Negative results and bounded search
 
@@ -108,7 +108,7 @@ The helper conservatively consumes a repair slot when it is reserved, including 
 
 ## 7. Run tracking and reproducibility
 
-Associate each run with the protocol, code revision, data version, configuration, seed or support-set sampling, command, device, budget, logs, outputs, and checkpoint location. An evidence file must support the stated outcome. Preserve failures and cancelled work.
+Associate each run with the protocol, code revision, data version, configuration, seed or support-set sampling, command, device, budget, logs, outputs, and checkpoint location. An evidence file must support the stated outcome. Planned comparisons and ablations use a declared `control` record: their scores do not replace the latest full-method outcome, and all records count toward the global run budget. Preserve failures and cancelled work.
 
 The optional registry offers `check-contract`, `init`, `reserve`, `finish`, and `status`. It freezes a contract digest, serializes updates using local file locking, rejects duplicate fingerprints, checks active candidate registrations and total run limits, and records evidence-file SHA-256 hashes. Initialization publishes a fully written registry without replacing an existing one on supported local filesystems.
 
@@ -142,7 +142,7 @@ The [provenance record](../skills/ai-research-workflow/references/sources.md) li
 
 ## 10. Validation and open work
 
-The [validation record](VALIDATION.md) distinguishes static checks, 31 software tests, packaging, synthetic isolated-context checks, and internal code review. The CI matrix covers Windows/Linux and Python 3.10/3.12. These results validate the tested software behavior and specific procedure examples.
+The [validation record](VALIDATION.md) distinguishes static checks, 40 software tests, packaging, synthetic isolated-context checks, and internal code review. The CI matrix covers Windows/Linux and Python 3.10/3.12. These results validate the tested software behavior and specific procedure examples.
 
 The next research validation task is a real vision research pilot: complete intake, check the mechanism against original sources, run small implementation and training checks, verify recovery and resource control, and audit fair comparisons and ablations. Scientific effectiveness remains unmeasured until those artifacts exist.
 

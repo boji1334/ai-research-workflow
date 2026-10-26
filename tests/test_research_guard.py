@@ -126,6 +126,84 @@ class GuardTests(unittest.TestCase):
         self.assertEqual(run["status"], "reserved")
         self.assertNotIn("research_success", guard.status(self.registry))
 
+    def test_negative_ablation_preserves_full_method_confirmation_path(self):
+        self.settle(self.begin("pilot"), "gain")
+        self.settle(self.begin("remove-module", "control", reason="planned remove-module ablation"))
+        current = guard.status(self.registry)["candidates"]["mechanism-a"]
+        self.assertEqual(current["last_outcome"], "no_gain")
+        self.assertEqual(current["last_run_kind"], "control")
+        self.assertEqual(current["last_method_outcome"], "gain")
+        confirmation = self.begin("full-method-held-out", "confirm")
+        self.settle(confirmation, "gain")
+        self.assertEqual(guard.read_registry(self.registry)["runs"][-1]["id"], confirmation["id"])
+        self.assertEqual(guard.status(self.registry)["candidates"]["mechanism-a"]["repair_slots_used"], 0)
+
+    def test_control_requires_full_method_gain_and_a_declared_purpose(self):
+        self.settle(self.begin("pilot"))
+        with self.assertRaisesRegex(guard.GuardError, "preliminary gain"):
+            self.begin("premature-control", "control", reason="planned ablation")
+        self.settle(self.begin("fixed", "repair", reason="fixture fix"), "gain")
+        with self.assertRaisesRegex(guard.GuardError, "purpose"):
+            self.begin("unnamed-control", "control")
+
+    def test_negative_control_does_not_unlock_method_repair(self):
+        self.settle(self.begin("pilot"), "gain")
+        self.settle(self.begin("control", "control", reason="planned capacity control"))
+        with self.assertRaisesRegex(guard.GuardError, "negative or invalid"):
+            self.begin("unsupported-repair", "repair", reason="ablation lost accuracy")
+
+    def test_negative_full_method_confirmation_still_blocks_expansion(self):
+        self.settle(self.begin("pilot"), "gain")
+        self.settle(self.begin("control", "control", reason="planned ablation"))
+        self.settle(self.begin("confirm", "confirm"))
+        for kind in ("confirm", "control"):
+            with self.subTest(kind=kind), self.assertRaisesRegex(guard.GuardError, "preliminary gain"):
+                self.begin("after-negative-" + kind, kind, reason="another test")
+
+    def test_control_history_requires_prior_gain_and_purpose(self):
+        self.settle(self.begin("pilot"), "gain")
+        self.settle(self.begin("control", "control", reason="planned ablation"))
+        valid = guard.read_registry(self.registry)
+        for change in ("prior_gain", "purpose"):
+            with self.subTest(change=change):
+                changed = copy.deepcopy(valid)
+                if change == "prior_gain":
+                    changed["runs"][0]["outcome"] = "no_gain"
+                else:
+                    changed["runs"][1]["reason"] = ""
+                self.registry.write_text(json.dumps(changed), encoding="utf-8")
+                with self.assertRaises(guard.GuardError):
+                    guard.read_registry(self.registry)
+
+    def test_control_consumes_the_global_run_budget(self):
+        self.registry.unlink()
+        self.contract["resources"]["max_total_runs"] = 2
+        self.save_contract()
+        guard.initialize(self.contract_path, self.registry)
+        self.settle(self.begin("pilot"), "gain")
+        self.settle(self.begin("control", "control", reason="planned ablation"))
+        with self.assertRaisesRegex(guard.GuardError, "budget is exhausted"):
+            self.begin("confirm", "confirm")
+
+    def test_cli_registers_and_finishes_a_planned_control(self):
+        self.settle(self.begin("pilot"), "gain")
+        registered = subprocess.run(
+            [sys.executable, str(SCRIPT), "reserve", "--contract", str(self.contract_path),
+             "--registry", str(self.registry), "--candidate", "mechanism-a", "--kind", "control",
+             "--fingerprint", "f" * 64, "--command", "NOT EXECUTED: planned ablation",
+             "--budget", "zero GPU", "--reason", "protocol fixture: remove module"],
+            capture_output=True, encoding="utf-8", check=False)
+        self.assertEqual(registered.returncode, 0, registered.stderr)
+        run = json.loads(registered.stdout)
+        self.assertEqual(run["kind"], "control")
+        finished = subprocess.run(
+            [sys.executable, str(SCRIPT), "finish", "--registry", str(self.registry),
+             "--run-id", run["id"], "--outcome", "no_gain", "--evidence", str(self.evidence)],
+            capture_output=True, encoding="utf-8", check=False)
+        self.assertEqual(finished.returncode, 0, finished.stderr)
+        self.assertEqual(json.loads(finished.stdout)["outcome"], "no_gain")
+        self.assertEqual(guard.read_registry(self.registry)["runs"][-1]["kind"], "control")
+
     def test_changed_contract_is_not_silently_adopted(self):
         self.contract["resources"]["max_total_runs"] = 20
         self.save_contract()
@@ -189,6 +267,24 @@ class GuardTests(unittest.TestCase):
         run = self.begin("pilot")
         with self.assertRaises(FileNotFoundError):
             guard.finish(self.registry, run["id"], "gain", self.root / "missing.json")
+        self.assertEqual(guard.read_registry(self.registry)["runs"][0]["status"], "reserved")
+
+    def test_registry_cannot_be_its_own_result_evidence(self):
+        run = self.begin("pilot")
+        before = self.registry.read_bytes()
+        with self.assertRaisesRegex(guard.GuardError, "registry itself"):
+            guard.finish(self.registry, run["id"], "gain", self.registry)
+        self.assertEqual(self.registry.read_bytes(), before)
+
+    def test_registry_alias_cannot_be_result_evidence(self):
+        run = self.begin("pilot")
+        alias = self.root / "evidence-alias.json"
+        try:
+            alias.symlink_to(self.registry)
+        except (OSError, NotImplementedError) as exc:
+            self.skipTest(f"file symlink creation unavailable: {exc}")
+        with self.assertRaisesRegex(guard.GuardError, "registry itself"):
+            guard.finish(self.registry, run["id"], "gain", alias)
         self.assertEqual(guard.read_registry(self.registry)["runs"][0]["status"], "reserved")
 
     def test_nonfinite_and_boolean_effects_fail(self):

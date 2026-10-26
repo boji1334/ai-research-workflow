@@ -1,17 +1,17 @@
 # Validation record and acceptance scope
 
-**Version:** 0.1.1. **Date:** October 26, 2026. [简体中文](VALIDATION.zh-CN.md)
+**Version:** 0.1.2. **Date:** October 26, 2026. [简体中文](VALIDATION.zh-CN.md)
 
 This record distinguishes software validation, internal synthetic behavior checks, and real research acceptance. The first two have bounded completed checks; real-project effectiveness remains unvalidated.
 
-This update changes the project identity and vision-model emphasis while preserving the v0.1.0 research rules and helper behavior. The isolated behavior checks and internal code review below were conducted for v0.1.0. Software and static checks are rerun for this update; historical synthetic cases do not validate additional research domains.
+Version 0.1.2 clarifies the pilot-review gate and fixes control-experiment bookkeeping and self-referencing evidence. See the [audit record](AUDIT-2026-10-26.zh-CN.md) and [first project-pilot checklist](PILOT-TEST.zh-CN.md) (Chinese). The isolated behavior checks and internal code review below were conducted for v0.1.0; they are historical observations. This update reruns software/static checks and adds nine unit/CLI regressions. The revised instruction behavior still requires project-pilot observation.
 
 ## Software and packaging
 
 | Check | Recorded outcome |
 | --- | --- |
 | Official `skill-creator` static validation | Passed: `Skill is valid!`. |
-| Python standard-library unit and CLI tests | 31 passed on Windows / Python 3.13.9, with no skips. |
+| Python standard-library unit and CLI tests | 40 passed on Windows / Python 3.13.9, with no skips. |
 | Relative links, Python/JSON parsing, and skill structure | Passed. |
 | Standalone skill-directory relocation | CLI started from a temporary directory; the incomplete contract was correctly marked not ready. |
 | Release-content inspection | Inspected the file manifest and searched for local user paths, original project identifiers, common credential patterns, and private-key markers; no matches found in the release files. |

@@ -172,6 +172,11 @@ def canonical_registry(path):
     return resolved
 
 
+def latest_method_run(family):
+    """Controls describe contrasts, so their score is not a full-method verdict."""
+    return next((run for run in reversed(family) if run["kind"] != "control"), None)
+
+
 def read_registry(path):
     registry = read_json(canonical_registry(path))
     if (not isinstance(registry, dict) or type(registry.get("schema_version")) is not int
@@ -189,7 +194,7 @@ def read_registry(path):
             raise GuardError("run identity is missing")
         if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,63}", run["candidate"]):
             raise GuardError("malformed candidate family ID")
-        if run.get("kind") not in ("pilot", "repair", "confirm"):
+        if run.get("kind") not in ("pilot", "repair", "confirm", "control"):
             raise GuardError("unknown run kind")
         if run.get("status") not in ("reserved", "finished"):
             raise GuardError("unknown run status")
@@ -217,6 +222,7 @@ def read_registry(path):
                 raise GuardError("candidate history must start with a pilot")
         else:
             previous = family[-1]
+            method = latest_method_run(family)
             if previous["status"] != "finished":
                 raise GuardError("candidate history overlaps an unsettled run")
             if run["kind"] == "pilot":
@@ -224,12 +230,14 @@ def read_registry(path):
             if run["kind"] == "repair":
                 if sum(item["kind"] == "repair" for item in family) >= 2:
                     raise GuardError("candidate history exceeds two repair rounds")
-                if previous["outcome"] not in ("no_gain", "invalid", "cancelled"):
+                if method["outcome"] not in ("no_gain", "invalid", "cancelled"):
                     raise GuardError("repair history has no prior negative/invalid evidence")
                 if not nonempty(run.get("reason")):
                     raise GuardError("repair history is missing its hypothesis")
-            if run["kind"] == "confirm" and previous["outcome"] != "gain":
+            if run["kind"] in ("confirm", "control") and method["outcome"] != "gain":
                 raise GuardError("confirmation history has no prior gain")
+            if run["kind"] == "control" and not nonempty(run.get("reason")):
+                raise GuardError("control history is missing its declared purpose")
         family.append(run)
     return registry
 
@@ -291,7 +299,7 @@ def reserve(contract_path, registry_path, candidate, kind, fingerprint,
     fingerprint = fingerprint.lower()
     if not is_hash(fingerprint):
         raise GuardError("fingerprint must be a SHA-256 hex digest of real run inputs")
-    if kind not in ("pilot", "repair", "confirm"):
+    if kind not in ("pilot", "repair", "confirm", "control"):
         raise GuardError("unknown run kind")
     if not nonempty(command) or not nonempty(budget):
         raise GuardError("record the exact command and bounded run budget")
@@ -311,15 +319,18 @@ def reserve(contract_path, registry_path, candidate, kind, fingerprint,
             raise GuardError("candidate already has a pilot; preserve its history")
         if kind != "pilot" and not family:
             raise GuardError("pilot evidence is required first")
+        method = latest_method_run(family)
         if kind == "repair":
             if sum(run["kind"] == "repair" for run in family) >= 2:
                 raise GuardError("two repair rounds already reserved; close this candidate")
-            if family[-1].get("outcome") not in ("no_gain", "invalid", "cancelled"):
+            if method.get("outcome") not in ("no_gain", "invalid", "cancelled"):
                 raise GuardError("repair requires settled negative or invalid pilot evidence")
             if not nonempty(reason):
                 raise GuardError("repair requires a specific evidence-based hypothesis")
-        if kind == "confirm" and family[-1].get("outcome") != "gain":
+        if kind in ("confirm", "control") and method.get("outcome") != "gain":
             raise GuardError("confirmation requires preliminary gain and scientific review")
+        if kind == "control" and not nonempty(reason):
+            raise GuardError("control requires a declared comparison or ablation purpose")
         run = {"id": "run-" + uuid.uuid4().hex[:12], "candidate": candidate,
                "kind": kind, "fingerprint": fingerprint, "command": command,
                "budget": budget, "reason": reason, "status": "reserved",
@@ -334,6 +345,8 @@ def finish(registry_path, run_id, outcome, evidence_path):
     if outcome not in ("gain", "no_gain", "invalid", "cancelled"):
         raise GuardError("unknown outcome")
     evidence_path = Path(evidence_path).resolve(strict=True)
+    if evidence_path == registry_path:
+        raise GuardError("the registry itself cannot serve as result evidence")
     if not evidence_path.is_file():
         raise GuardError("evidence must be an existing result/log file")
     file_hash = hashlib.sha256()
@@ -362,6 +375,9 @@ def status(registry_path):
         if run["status"] == "reserved":
             entry["unsettled"].append(run["id"])
         entry["last_outcome"] = run.get("outcome")
+        entry["last_run_kind"] = run["kind"]
+        if run["kind"] != "control":
+            entry["last_method_outcome"] = run.get("outcome")
     return {"total_registered": len(registry["runs"]), "candidates": families,
             "note": "Registry state is not a live process check or a scientific verdict."}
 
@@ -381,7 +397,7 @@ def main(argv=None):
     begin.add_argument("--contract", required=True)
     begin.add_argument("--registry", required=True)
     begin.add_argument("--candidate", required=True)
-    begin.add_argument("--kind", choices=("pilot", "repair", "confirm"), required=True)
+    begin.add_argument("--kind", choices=("pilot", "repair", "confirm", "control"), required=True)
     begin.add_argument("--fingerprint", required=True)
     begin.add_argument("--command", required=True)
     begin.add_argument("--budget", required=True)

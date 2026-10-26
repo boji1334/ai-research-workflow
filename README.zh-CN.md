@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml"><img src="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml/badge.svg" alt="软件验证"></a>
-  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.1"><img src="https://img.shields.io/badge/release-v0.1.1%20preview-166b5b" alt="v0.1.1 预览版"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.2"><img src="https://img.shields.io/badge/release-v0.1.2%20preview-166b5b" alt="v0.1.2 预览版"></a>
   <a href="skills/ai-research-workflow/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="可选工具：Python 3.10 及以上"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT 许可证"></a>
 </p>
@@ -27,7 +27,7 @@
 
 本技能为 Codex 提供一套可执行的研究规程：先了解已有项目和论文要求，再查新、设计机制、实现模块、做有限实验并审查证据。工作流止于实验交付，包含代码、结果、消融、审查记录和复现材料。
 
-**当前状态：v0.1.1，实验性预览版。** 软件检查和隔离上下文的合成场景检查已记录在[验证记录](docs/VALIDATION.zh-CN.md)中。真实视觉研究项目的端到端有效性仍待验收；新颖性、效果与论文目标达成情况需要实际项目证据。
+**当前状态：v0.1.2，实验性预览版。** 软件检查和隔离上下文的合成场景检查已记录在[验证记录](docs/VALIDATION.zh-CN.md)中。真实视觉研究项目的端到端有效性仍待验收；新颖性、效果与论文目标达成情况需要实际项目证据。
 
 ## 核心能力
 
@@ -141,8 +141,9 @@ python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
 | [中文验证记录](docs/VALIDATION.zh-CN.md) · [English](docs/VALIDATION.md) | 已完成的软件与内部行为检查，以及待做的真实研究验证。 |
 | [技能入口](skills/ai-research-workflow/SKILL.md) | Codex 实际加载的规程。 |
 | [设计来源](skills/ai-research-workflow/references/sources.md) | 固定到已查阅提交的上游来源与适配边界。 |
-| [发布与迁移说明](docs/RELEASE-NOTES-0.1.1.md) | 版本、安装和发布信息。 |
+| [发布与迁移说明](docs/RELEASE-NOTES-0.1.2.md) | 版本、安装和发布信息。 |
 | [变更记录](CHANGELOG.md) | 仓库改动。 |
+| [测试前审查](docs/AUDIT-2026-10-26.zh-CN.md) · [项目试用清单](docs/PILOT-TEST.zh-CN.md) | 本轮发现、修订与真实试用的观察条件。 |
 
 本地复核：
 
@@ -151,7 +152,7 @@ python -m unittest discover -s tests -v
 python tools/validate_repository.py
 ```
 
-当前版本有 31 项软件测试，并由 Windows/Linux × Python 3.10/3.12 CI 验证。合成场景检查覆盖访谈和证据审查，与算法性能基准分别报告。下一阶段重点是在真实项目中完成小试、恢复核对、公平对比与消融，建立科研有效性证据。
+当前版本有 40 项软件测试，并由 Windows/Linux × Python 3.10/3.12 CI 验证。合成场景检查覆盖访谈和证据审查，与算法性能基准分别报告。下一阶段重点是在真实项目中完成小试、恢复核对、公平对比与消融，建立科研有效性证据。
 
 ## 整合的科研技能与方法
 
@@ -173,7 +174,7 @@ python tools/validate_repository.py
 @software{ai_research_workflow_2026,
   author  = {{boji1334}},
   title   = {AI Research Workflow},
-  version = {0.1.1},
+  version = {0.1.2},
   year    = {2026},
   url     = {https://github.com/boji1334/ai-research-workflow}
 }

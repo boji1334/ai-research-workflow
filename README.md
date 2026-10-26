@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml"><img src="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml/badge.svg" alt="Software validation"></a>
-  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.1"><img src="https://img.shields.io/badge/release-v0.1.1%20preview-166b5b" alt="v0.1.1 preview"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.2"><img src="https://img.shields.io/badge/release-v0.1.2%20preview-166b5b" alt="v0.1.2 preview"></a>
   <a href="skills/ai-research-workflow/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="Optional CLI: Python 3.10 or newer"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT License"></a>
 </p>
@@ -144,8 +144,9 @@ The helper records runs; Codex and the project's execution tools launch them. Sc
 | [Validation record](docs/VALIDATION.md) | Completed software and internal behavior checks; outstanding research validation. |
 | [Skill entrypoint](skills/ai-research-workflow/SKILL.md) | The procedure loaded by Codex. |
 | [Design provenance](skills/ai-research-workflow/references/sources.md) | Upstream sources pinned to inspected revisions and the exact adaptation boundaries. |
-| [Release notes and migration](docs/RELEASE-NOTES-0.1.1.md) | Versioned installation and release information. |
+| [Release notes and migration](docs/RELEASE-NOTES-0.1.2.md) | Versioned installation and release information. |
 | [Changelog](CHANGELOG.md) | Changes to the repository. |
+| [Pre-pilot audit](docs/AUDIT-2026-10-26.zh-CN.md) · [Pilot checklist](docs/PILOT-TEST.zh-CN.md) | Findings, fixes, and observable behavior for a first project pilot (Chinese). |
 
 To verify the repository locally:
 
@@ -154,7 +155,7 @@ python -m unittest discover -s tests -v
 python tools/validate_repository.py
 ```
 
-The current release has 31 software tests and a Windows/Linux × Python 3.10/3.12 CI matrix. Synthetic checks exercise intake and evidence review; they are distinct from algorithm benchmarks. See [validation details](docs/VALIDATION.md).
+The current release has 40 software tests and a Windows/Linux × Python 3.10/3.12 CI matrix. Synthetic checks exercise intake and evidence review; they are distinct from algorithm benchmarks. See [validation details](docs/VALIDATION.md).
 
 Near-term work focuses on one real project pilot, recovery checks in its execution environment, and evidence from fair comparisons and ablations before claiming research effectiveness.
 
@@ -178,7 +179,7 @@ To reference this software, use the repository's **Cite this repository** entry 
 @software{ai_research_workflow_2026,
   author  = {{boji1334}},
   title   = {AI Research Workflow},
-  version = {0.1.1},
+  version = {0.1.2},
   year    = {2026},
   url     = {https://github.com/boji1334/ai-research-workflow}
 }
