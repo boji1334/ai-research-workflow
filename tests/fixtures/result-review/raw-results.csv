@@ -1,0 +1,7 @@
+method,seed,AP,training_data,optimizer_updates
+baseline,1,80,real_train_only,1000
+baseline,2,81,real_train_only,1000
+baseline,3,79,real_train_only,1000
+candidate,1,82,real_train_plus_synthetic,2000
+candidate,2,60,real_train_plus_synthetic,2000
+candidate,3,81,real_train_plus_synthetic,2000

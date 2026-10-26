@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "intake": {
+    "sequence": [],
+    "project_gaps": [],
+    "publication_gaps": [],
+    "fact_sources": []
+  },
+  "project": {
+    "task": null,
+    "bottleneck": null,
+    "data_roles": {"train": null, "validation": null, "test": null},
+    "baseline": null,
+    "prior_attempts": null,
+    "fixed_constraints": null,
+    "allowed_changes": null
+  },
+  "resources": {
+    "execution_target": null,
+    "compute_budget": null,
+    "storage_budget": null,
+    "active_runs": [],
+    "execution_owner": null,
+    "max_total_runs": null
+  },
+  "publication": {
+    "target": {"kind": null, "value": null, "access": null},
+    "requirements_source": null,
+    "start_date": null,
+    "deadline": null,
+    "timezone": null
+  },
+  "acceptance": {
+    "primary_metric": null,
+    "direction": null,
+    "min_effect": null,
+    "scale": null,
+    "rationale": null,
+    "repeat_plan": null,
+    "fairness_controls": [],
+    "evidence_requirements": []
+  }
+}

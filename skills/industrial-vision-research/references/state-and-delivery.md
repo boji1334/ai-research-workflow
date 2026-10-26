@@ -1,0 +1,61 @@
+# 运行登记、接续与交付
+
+## 一个事实入口
+
+沿用项目已有协议、候选账本、运行记录与交接。记录的位置和格式可以适配项目；不要另建竞争的“最新状态”。技能仓库与研究项目分开，研究数据、权重和私有日志不写进公共技能仓库。
+
+最小接续信息：当前项目与协议版本、已解决/未解决的需求、阶段、候选族及修复次数、代码/数据版本、活动运行及实际进程、最新审查、结论、剩余预算、截止日期和下一步。
+
+运行标识关联具体配置、数据、种子/支持集、代码和输出。训练结束保留退出状态、评价来源和权重位置。停止或失败也进入历史。
+
+## 恢复与重复运行
+
+先检查已有调度器、远端进程、作业 ID、日志和输出。登记为活动状态不保证进程仍活着；日志存在也不保证训练成功。核实后再决定接续、结束或发起新运行。
+
+为相同代码、协议、数据、种子/支持集和配置生成稳定指纹。发现相同运行时优先检查已有产物，不再次启动。一次只允许一个主执行者变更研究状态；长训练使用项目已具备的作业管理能力。
+
+没有可用的持续执行机制时，明确报告活动进程和再次接续入口；不宣称技能会自动后台运行。创建定时任务、发跨线程消息等动作需当前用户请求覆盖。
+
+## 可选：标准库辅助工具
+
+`scripts/research_guard.py` 仅负责机械约束，不启动子进程或训练。Python 3.10+，无第三方依赖。它提供：
+
+- `check-contract`：检查项目、论文目标、周期、预算与评价字段是否齐全。
+- `init`：先完整写入临时文件，再以硬链接原子发布新登记文件，不覆盖已有文件。需要支持硬链接的本地文件系统，例如 NTFS/ext4；不支持时受控退出，不留下半写入的目标文件。
+- `reserve`：在锁内登记待运行任务，校验协议摘要、截止日期、总次数、重复指纹、候选活动状态和最多两次修复。
+- `finish`：记录真实结果类别与存在的证据文件；文件摘要便于后续核验。
+- `status`：报告已登记任务和各候选的修复槽计数。
+
+这些检查只验证结构和登记历史。事实是否正确、review 是否充分、阈值是否合理、是否使用了同一机制的新名称、指标是否复算、真实进程/资源是否符合预算，由执行者与科学审查核实。总次数是机械上限，GPU 小时、磁盘配额和单轮训练量需项目运行工具落实。
+
+新项目示例（在**研究项目**目录执行，将 `SKILL_DIR` 替换为技能实际路径）：
+
+```text
+python SKILL_DIR/scripts/research_guard.py check-contract --contract research-contract.json
+python SKILL_DIR/scripts/research_guard.py init --contract research-contract.json --registry research-runs.json
+python SKILL_DIR/scripts/research_guard.py reserve --contract research-contract.json --registry research-runs.json --candidate mechanism-a --kind pilot --fingerprint HASH_OF_CODE_DATA_CONFIG_SEED --command "python train.py --config pilot.yaml" --budget "one planned pilot batch, at most 30 GPU minutes"
+python SKILL_DIR/scripts/research_guard.py finish --registry research-runs.json --run-id RETURNED_RUN_ID --outcome no_gain --evidence runs/pilot/summary.json
+python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
+```
+
+`reserve` 返回运行标识以后才由执行者运行命令；若未启动或中断，先如实结算该登记项。`finish` 的 `gain` 是调用者依据协议给出的类别，工具本身不计算提升。第二轮修复后仍无收益，工具阻止第三轮修复；获得收益后可进入确认实验，但仍需完成科学审查。
+
+每个 `--fingerprint` 应为对上述真实输入计算出的 SHA-256（64 位十六进制），不是随手起的名字。重复运行包括曾取消/失败的相同指纹；必要重跑要记录理由并使用反映实际重跑参数的指纹，仍受轮数和总预算约束。
+
+工具先解析符号链接到同一真实路径，再对登记文件使用独占锁和原子替换；已有多个硬链接的登记文件会被拒绝，以免历史分叉。不适合作为多主机共享文件系统上的分布式锁，也不提供防篡改审计。遗留 `.lock` 文件时先核实对应进程和执行责任，确认没有写者后才人工清理，工具不会自动删除他人的锁。CLI 输出固定为 UTF-8 JSON。
+
+协议摘要冻结后如确需调整，保留原协议和登记历史，通过项目现有版本机制安排新的协议/登记周期，迁移候选累计轮数与总预算；不得用重新初始化或新文件重置失败记录。
+
+## 交付与完成判定
+
+交付报告回答：有何真实创新性依据、相对哪些公平基线提升多少、波动与代价如何、哪些实验支持机制、哪些结论仍待核、负结果与限制是什么。
+
+同时提供代码版本、配置/命令、环境摘要、权重与原始产物位置、结果表和复算方法、审查记录与复现入口。缺失或未完成项显式列明。
+
+分别标记：
+
+- `research_success`：创新性依据充分、效果符合协议、必要证据完成并通过结果复核。
+- `partial_delivery`：截止/资源上限到达或用户要求阶段交付，仍存在未达目标。
+- `candidate_closed`：单个候选结束，不等同于整个研究主线结束。
+
+周期预警依据真实训练耗时和剩余证据工作量；不要等到截止日才报告明显缺口。未获周期调整，保持原截止并交付阶段成果。

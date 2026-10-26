@@ -1,0 +1,12 @@
+{
+  "synthetic_fixture": true,
+  "task": "synthetic industrial defect detection",
+  "target": "high-rigor experimental evidence; no specific journal named",
+  "primary_metric": "AP",
+  "scale": "0-100",
+  "planned_seeds": [1, 2, 3],
+  "required_mean_gain_points": 2.0,
+  "fairness": "same training data and total optimizer updates; independent test set",
+  "mechanism_claim": "the new gate itself causes a stable improvement",
+  "module_review": "not supplied in this fixture"
+}
