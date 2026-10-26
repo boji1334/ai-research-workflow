@@ -98,7 +98,7 @@ Literature checks use the search and browsing tools available to Codex. Training
 4. **Build the evidence.** After supported novelty, preliminary gain, and initial result review, complete the fair comparisons and contribution-specific experiments required by the protocol.
 5. **Review and hand off.** Recompute what the raw artifacts support and report whether the research target was met, partially met, or remains unsupported.
 
-The [design note](docs/DESIGN.md) specifies artifacts, review criteria, failure decisions, completion conditions, and the relationship to AI Scientist v3.
+The [design note](docs/DESIGN.md) specifies artifacts, review criteria, failure decisions, completion conditions, and the synthesis of research skills and methods.
 
 ### When does it stop?
 
@@ -140,7 +140,7 @@ The helper records runs; Codex and the project's execution tools launch them. Sc
 
 | Document | Purpose |
 | --- | --- |
-| [Design note](docs/DESIGN.md) | Scope, workflow, review logic, bounded iteration, and v3 comparison. |
+| [Design note](docs/DESIGN.md) | Scope, workflow, review logic, bounded iteration, and research-method synthesis. |
 | [Validation record](docs/VALIDATION.md) | Completed software and internal behavior checks; outstanding research validation. |
 | [Skill entrypoint](skills/industrial-vision-research/SKILL.md) | The procedure loaded by Codex. |
 | [Design provenance](skills/industrial-vision-research/references/sources.md) | Upstream sources pinned to inspected revisions and the exact adaptation boundaries. |
@@ -158,11 +158,17 @@ The current release has 31 software tests and a Windows/Linux × Python 3.10/3.1
 
 Near-term work focuses on one real project pilot, recovery checks in its execution environment, and evidence from fair comparisons and ablations before claiming research effectiveness.
 
-## Relationship to AI Scientist v3
+## Research skills and methods
 
-Sakana AI's [AI Scientist v3](https://github.com/SakanaAI/AI-Scientist-v3) is an inspiration for staged research execution and artifact continuity. Its associated preprint is [*The Agentic Scientist: Orchestrating Coding Agents for Automated Scientific (Co-)Discovery*](https://arxiv.org/abs/2610.18933), submitted on October 13, 2026.
+This skill synthesizes the following research skills and workflow methods into a unified procedure tailored to industrial vision:
 
-This project implements a domain-specific Codex skill with project intake, bounded experiments, and experimental handoff. It is independently maintained and does not bundle the v3 runner. ARS, Orchestra Research, and K-Dense also informed specific design choices; [provenance and adaptation boundaries](skills/industrial-vision-research/references/sources.md) document each source.
+- [ARS-Codex · academic-research-suite](https://github.com/Imbad0202/academic-research-skills-codex): research-question clarification, staged progression, and source verification.
+- [Orchestra Research · brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas): research questions and mechanism hypotheses grounded in real bottlenecks.
+- [Orchestra Research · autoresearch](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/0-autoresearch-skill): inner and outer experiment loops, predefined protocols, and negative-result records.
+- [K-Dense · scientific-critical-thinking](https://github.com/K-Dense-AI/scientific-agent-skills/tree/593377bb048752abb0152deab9fbb1083a6087df/skills/scientific-critical-thinking): evidence quality, confounds, mechanism explanations, and result review.
+- [AI Scientist v3 · research workflow methods](https://github.com/SakanaAI/AI-Scientist-v3): stage continuity, run identities, and experimental-artifact tracking.
+
+The [provenance record](skills/industrial-vision-research/references/sources.md) documents the synthesis and adaptation of each source.
 
 ## Citation
 

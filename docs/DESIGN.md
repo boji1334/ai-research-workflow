@@ -126,21 +126,19 @@ Estimate the remaining experimental and review work using observed run times. If
 
 Handoff includes source revision, reproducible configurations and commands, environment, raw result and checkpoint locations, comparisons and ablations, reviews, limitations, and negative results. Scientific success, software checks, and deadline compliance are reported separately.
 
-## 9. Relationship to AI Scientist v3
+## 9. Research skills and methods
 
-[Sakana AI's AI Scientist v3](https://github.com/SakanaAI/AI-Scientist-v3) is associated with the October 13, 2026 arXiv preprint [*The Agentic Scientist*](https://arxiv.org/abs/2610.18933). The system uses staged research execution with coding agents and tracks artifacts across experimentation, evaluation, analysis, and manuscript production.
+The skill synthesizes complementary research skills and workflow methods into a procedure tailored to industrial vision.
 
-| Dimension | AI Scientist v3 | Industrial Vision Research v0.1.0 |
-| --- | --- | --- |
-| Packaging | Research pipeline and execution runtime | Codex skill, references, templates, optional run helper |
-| Research scope | Computational research across tasks | Industrial vision, defect detection, related few-shot/self-supervised tasks |
-| Starting point | Task description and task scaffold | Existing material plus project and publication intake |
-| Execution | Pipeline drives configured coding agents and stages | Codex uses the tools and research environment available for the project |
-| Endpoint | Includes manuscript generation | Experimental evidence handoff |
-| Review emphasis | Staged verification; optional manuscript review | Mechanism and experimental-result review in the research procedure |
-| Evaluation status | See the upstream paper and its evidence | Software/internal behavior checks completed; real-project effectiveness pending |
+| Research skill or method | Contribution to the synthesis |
+| --- | --- |
+| ARS-Codex · `academic-research-suite` | Research-question clarification, staged progression, and source verification. |
+| Orchestra Research · `brainstorming-research-ideas` | Research questions and mechanism hypotheses grounded in real bottlenecks. |
+| Orchestra Research · `autoresearch` | Inner and outer experiment loops, predefined protocols, and negative-result records. |
+| K-Dense · `scientific-critical-thinking` | Evidence quality, confounds, mechanism explanations, and result review. |
+| AI Scientist v3 · research workflow methods | Stage continuity, run identities, and experimental-artifact tracking. |
 
-The adaptation takes inspiration from stage continuity, explicit evidence, and tracked research state. It does not integrate the v3 runtime or claim equivalent scientific results. The [provenance record](../skills/industrial-vision-research/references/sources.md) pins the inspected code revision and documents ARS, Orchestra Research, and K-Dense influences.
+The [provenance record](../skills/industrial-vision-research/references/sources.md) links the inspected revisions and documents each source's adaptation to this skill.
 
 ## 10. Validation and open work
 

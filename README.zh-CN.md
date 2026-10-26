@@ -137,7 +137,7 @@ python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
 
 | 文档 | 内容 |
 | --- | --- |
-| [设计说明](docs/DESIGN.md) | 范围、流程、审查、有限迭代和与 v3 的关系。 |
+| [设计说明](docs/DESIGN.md) | 范围、流程、审查、有限迭代和科研技能整合。 |
 | [中文验证记录](docs/VALIDATION.zh-CN.md) · [English](docs/VALIDATION.md) | 已完成的软件与内部行为检查，以及待做的真实研究验证。 |
 | [技能入口](skills/industrial-vision-research/SKILL.md) | Codex 实际加载的规程。 |
 | [设计来源](skills/industrial-vision-research/references/sources.md) | 固定到已查阅提交的上游来源与适配边界。 |
@@ -153,11 +153,17 @@ python tools/validate_repository.py
 
 当前版本有 31 项软件测试，并由 Windows/Linux × Python 3.10/3.12 CI 验证。合成场景检查覆盖访谈和证据审查，与算法性能基准分别报告。下一阶段重点是在真实项目中完成小试、恢复核对、公平对比与消融，建立科研有效性证据。
 
-## 与 AI Scientist v3 的关系
+## 整合的科研技能与方法
 
-Sakana AI 的 [AI Scientist v3](https://github.com/SakanaAI/AI-Scientist-v3) 为阶段接续和产物追踪提供了参考。其配套预印本 [*The Agentic Scientist: Orchestrating Coding Agents for Automated Scientific (Co-)Discovery*](https://arxiv.org/abs/2610.18933) 于 **2026 年 10 月 13 日**提交 arXiv。
+本技能综合以下科研技能与研究流程方法，针对工业视觉重新设计为统一工作流：
 
-本项目独立维护，采用面向工业视觉的 Codex skill 形式，重点是项目访谈、有限实验与证据交付，未打包 v3 的运行器。ARS、Orchestra Research 与 K-Dense 分别提供了部分设计参考，具体范围见[来源记录](skills/industrial-vision-research/references/sources.md)。
+- [ARS-Codex · academic-research-suite](https://github.com/Imbad0202/academic-research-skills-codex)：研究问题澄清、分阶段推进与来源核验。
+- [Orchestra Research · brainstorming-research-ideas](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/21-research-ideation/brainstorming-research-ideas)：从真实瓶颈形成研究问题与机制假设。
+- [Orchestra Research · autoresearch](https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/773a52944ba4747a18bd4ae9ade53fff041adcbc/0-autoresearch-skill)：内外两层实验循环、协议预设与负结果记录。
+- [K-Dense · scientific-critical-thinking](https://github.com/K-Dense-AI/scientific-agent-skills/tree/593377bb048752abb0152deab9fbb1083a6087df/skills/scientific-critical-thinking)：证据质量、混杂因素、机制解释与结果审查。
+- [AI Scientist v3 · 研究流程方法](https://github.com/SakanaAI/AI-Scientist-v3)：研究阶段接续、运行标识与实验产物追踪。
+
+具体整合范围与适配记录见[来源说明](skills/industrial-vision-research/references/sources.md)。
 
 ## 引用
 

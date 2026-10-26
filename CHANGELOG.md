@@ -4,7 +4,7 @@
 
 - Add English and Chinese project pages, original SVG research diagrams, and a technical design note.
 - Document review enforcement boundaries, candidate closure, project stopping conditions, and validation status.
-- Add software citation metadata and the verified AI Scientist v3 preprint reference.
+- Add software citation metadata and an overview of the research skills and workflow methods synthesized into this project.
 - Refresh repository presentation; skill instructions, helper behavior, and v0.1.0 release assets are unchanged.
 
 ## 0.1.0 — 2026-10-26
