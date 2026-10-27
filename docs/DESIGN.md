@@ -1,6 +1,6 @@
 # AI Research Workflow: design note
 
-**Implementation:** v0.1.3 experimental skill. **Document date:** October 26, 2026.
+**Implementation:** v0.2.0 experimental skill. **Document date:** October 27, 2026.
 
 This note describes the procedure implemented by the [skill](../skills/ai-research-workflow/SKILL.md), its optional run registry, and its current validation limits. It is project documentation. Research effectiveness on a real vision research project is an open validation task.
 
@@ -59,6 +59,7 @@ There is no fixed percentage-point threshold that implies top-tier readiness acr
 | Stage | Inputs | Required record | Decision |
 | --- | --- | --- | --- |
 | Intake | Existing project materials and user requirements | Resolved facts, remaining gaps, target, deadline | Clarify or establish protocol |
+| Research positioning | Closest sources, project failures and fixed constraints | Solved scope, supported opportunity, uncertainty, cost and decision checkpoint | Select a candidate, run a bounded decision probe, or propose a scope adjustment |
 | Mechanism design | Failure evidence and closest prior work | Candidate family, hypothesis, differences, implementation path, distinguishing test | Enter module review |
 | Module review | Candidate, original sources, code plan, protocol | Evidence-linked issues, impact, repair and uncertainty | Pilot, revise, known enhancement, or close |
 | Pilot and bounded repair | Reviewed candidate and small-run budget | Code/config/data/seed identity, command, outputs, reviewed outcome | Expand evidence, justify repair, or close |
@@ -68,6 +69,14 @@ There is no fixed percentage-point threshold that implies top-tier readiness acr
 
 Projects can reuse their existing ledger and artifact layout. These are information requirements; they do not require a second competing directory structure. The [candidate](../skills/ai-research-workflow/assets/candidate.md) and [review](../skills/ai-research-workflow/assets/review.md) templates provide starting records.
 
+### Research positioning and opportunity selection
+
+The [positioning procedure](../skills/ai-research-workflow/references/positioning.md) distinguishes the research direction, concrete problem, candidate mechanism and supporting evidence. Prior work in a direction supplies a starting point. A missing experiment in one paper does not establish an unsolved problem; a known component does not establish equivalence of the complete mechanism. Equivalence and novelty claims require source and algorithm evidence.
+
+Record which task/data/technical choices are fixed and which are preferences. Tie a candidate to a documented nearest-neighbor limit and a project observation or falsifiable hypothesis. Compare relevant effective methods as well as the original baseline. Choose a bounded next action for its ability to change the research decision and its real cost; do not invent novelty scores or predicted success probabilities. The [opportunity template](../skills/ai-research-workflow/assets/opportunity.md) is optional when the project already has equivalent records.
+
+At a project-specific positioning checkpoint, produce a selected candidate, a finite probe that resolves a decision, or the actual gap and a concrete scope-adjustment proposal. Fixed task changes, including unseen-class protocols, require resolution of user requirements before implementation. Renaming a scenario or accepting lower absolute scores does not establish a contribution.
+
 ## 5. Two scientific reviews
 
 ### Module review
@@ -75,6 +84,8 @@ Projects can reuse their existing ledger and artifact layout. These are informat
 Review the existence of the bottleneck, coverage of nearest prior work, mathematical or algorithmic differences, assumptions, and permitted information flow. Check whether tensor interfaces, gradients, training and inference paths are coherent and whether an experiment can distinguish the proposed explanation from obvious confounds.
 
 Available decisions are `proceed_to_pilot`, `revise_before_pilot`, `known_enhancement`, and `close_candidate`. Passing this review means the candidate merits a bounded test. It does not prove novelty or a gain.
+
+Separate pilot admission, experimental expansion and final contribution acceptance. Missing performance, full ablations or cross-dataset evidence can remain open for later acceptance without automatically blocking a justified pilot. Demonstrated leakage, logical/implementation errors and a non-discriminating design affect the corresponding next action. A proven equivalent method blocks its originality claim but may remain a properly attributed baseline/control. Every finding identifies the smallest affected claim or stage and the evidence needed there.
 
 ### Result review
 
@@ -90,11 +101,13 @@ Formal module and final-result reviews default to three isolated internal report
 
 Material issues carry stable IDs, affected claims/stages, blocking status, resolution tests, and recheck evidence. Open blockers prevent the affected transition or acceptance. Review findings do not create extra repair rounds or extend the deadline. Search records separately track source failures, linked paper versions, citation identity, and support for a specific claim.
 
-**Current enforcement boundary:** the instructions require module and result review at key decisions. They do not mandate a new isolated review agent before every repair round, and the registry does not validate a review report's approval. Those distinctions remain explicit in v0.1.3. See the [review procedure](../skills/ai-research-workflow/references/review.md).
+**Current enforcement boundary:** the instructions require module and result review at key decisions. They do not mandate a new isolated review agent before every repair round, and the registry does not validate a review report's approval. These remain procedural responsibilities in v0.2.0. See the [review procedure](../skills/ai-research-workflow/references/review.md).
 
 ## 6. Negative results and bounded search
 
 Candidate-level stopping and project-level stopping are separate decisions.
+
+Before a pilot, record the primary outcome and the meaning of positive, null, downstream-negative and engineering-failure results. Identify the closest effective method and the smallest necessary mechanism/capacity/budget control. A positive ablation result supports a bounded explanation, not unique causality or automatic research success. Initial baseline/control subruns can belong to a declared pilot batch; they do not bypass the registry's existing independent `control` admission rule.
 
 | Observation | Interpretation and action |
 | --- | --- |
@@ -107,6 +120,8 @@ Candidate-level stopping and project-level stopping are separate decisions.
 An initial pilot may be followed by **at most two small repair rounds**. Each round freezes one repair hypothesis and its total training budget. Replicate seeds or support sets belong to the round's preplanned total budget. The allowance can end earlier when the mechanism is refuted or resources run out.
 
 The same mechanism retains its candidate-family identity across renaming, small parameter changes, and configuration splits. A closed candidate can be followed by a genuinely different mechanism within the fixed research question and remaining global budget. A fresh name or registry file does not reset history.
+
+Positioning, literature, review and engineering recovery have project-specific cumulative time/resource boundaries and concrete decision checkpoints. Report total remaining resources, active reservations and actually available resources separately. Reallocation preserves commitments, history and frozen-contract rules. A new directory or candidate does not reset those budgets.
 
 The helper conservatively consumes a repair slot when it is reserved, including a later cancelled or invalid run. A project that needs a more detailed infrastructure-failure policy must specify and retain it in its protocol. See [experiment rules](../skills/ai-research-workflow/references/experiments.md).
 
@@ -129,6 +144,8 @@ The registry does not compute scientific metrics, inspect training processes, re
 Estimate the remaining experimental and review work using observed run times. If the target appears out of reach, explain the gap early and ask whether the user wants to adjust the deadline or goal. Without an agreed change, deliver stage results at the original boundary. User instructions to stop or redirect also end the current plan.
 
 Handoff includes source revision, reproducible configurations and commands, environment, raw result and checkpoint locations, comparisons and ablations, reviews, limitations, and negative results. Scientific success, software checks, and deadline compliance are reported separately.
+
+Stage reports separately identify model changes and measured gains, added scientific evidence, and engineering recovery. Attribute inherited models and scores to their original versions. Choosing a research line, implementing a candidate, completing a pilot, freezing the final method and completing the evidence are distinct states; review reports and reproduction of an old score do not count as a new model improvement.
 
 ## 9. Research skills and methods
 

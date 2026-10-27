@@ -1,8 +1,8 @@
 # Validation record and acceptance scope
 
-**Version:** 0.1.3. **Date:** October 26, 2026. [简体中文](VALIDATION.zh-CN.md)
+**Version:** 0.2.0. **Date:** October 27, 2026. [简体中文](VALIDATION.zh-CN.md)
 
-**v0.1.3 procedure update.** See [the v0.1.3 validation record](VALIDATION-0.1.3.md) for this revision. The historical observations below retain their original version labels.
+**v0.2.0 decision update.** See [the v0.2.0 validation record](VALIDATION-0.2.0.md) for research positioning and staged pilot-admission checks. The [v0.1.3 record](VALIDATION-0.1.3.md) and observations below retain their original version labels; previous software or behavior results are not presented as a new scientific benchmark.
 
 This record distinguishes software validation, internal synthetic behavior checks, and real research acceptance. The first two have bounded completed checks; real-project effectiveness remains unvalidated.
 

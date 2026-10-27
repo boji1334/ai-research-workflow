@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml"><img src="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml/badge.svg" alt="软件验证"></a>
-  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.3"><img src="https://img.shields.io/badge/release-v0.1.3%20preview-166b5b" alt="v0.1.3 预览版"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.2.0"><img src="https://img.shields.io/badge/release-v0.2.0%20preview-166b5b" alt="v0.2.0 预览版"></a>
   <a href="skills/ai-research-workflow/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="可选工具：Python 3.10 及以上"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT 许可证"></a>
 </p>
@@ -25,17 +25,18 @@
   <a href="#引用">引用</a>
 </p>
 
-本技能为 Codex 提供一套可执行的研究规程：先了解已有项目和论文要求，再查新、设计机制、实现模块、做有限实验并审查证据。工作流止于实验交付，包含代码、结果、消融、审查记录和复现材料。
+本技能为 Codex 提供一套可执行的研究规程：先了解已有项目和论文要求，再定位前沿研究机会、查新、设计机制、实现模块、做有限实验并审查证据。工作流止于实验交付，包含代码、结果、消融、审查记录和复现材料。
 
-**当前状态：v0.1.3，实验性预览版。** 软件检查和隔离上下文的合成场景检查已记录在[验证记录](docs/VALIDATION.zh-CN.md)中。真实视觉研究项目的端到端有效性仍待验收；新颖性、效果与论文目标达成情况需要实际项目证据。
+**当前状态：v0.2.0，实验性预览版。** 软件检查和隔离上下文的合成场景检查已记录在[验证记录](docs/VALIDATION.zh-CN.md)中。真实视觉研究项目的端到端有效性仍待验收；新颖性、效果与论文目标达成情况需要实际项目证据。
 
 ## 核心能力
 
 | 能力 | 实际研究行为 |
 | --- | --- |
 | **先了解项目** | 先读材料、补齐项目事实，再确认目标期刊或级别、OA 偏好和可接受周期。 |
+| **定位研究机会** | 从最近邻实际解决的范围和项目限制中选择具体问题，记录机制差异、区分实验、预算与决策节点。 |
 | **查到机制层面** | 对比最近邻原文、公式、监督与实现路径，区分新机制、换名和已知增强。 |
-| **两道科学审查** | 小试前审查模块，扩大实验或确认贡献前审查结果；正式审查先隔离报告定稿，再独立核验数值并跟踪问题关闭。 |
+| **分阶段科学审查** | 小试准入、扩大实验和贡献验收分别判断；问题绑定实际阻断阶段，正式报告独立定稿后再核验和汇总。 |
 | **有限候选搜索** | 首次小试无提升后，最多追加两轮有依据的小规模修复；关闭失败候选后，在剩余预算内寻找不同机制。 |
 | **实验围绕贡献** | 按实际主张和论文目标安排强基线、公平对比、消融、稳定性、泛化与成本证据。 |
 | **有记录地接续** | 保留协议、候选族、运行标识、原始产物、失败、审查和下一步，支持跨会话继续。 |
@@ -89,10 +90,10 @@ $ai-research-workflow 审查这个模块与最近邻工作的差异，
   <img src="docs/assets/research-loop.svg" alt="项目访谈与协议；查新、模块审查和小试；按证据修复或关闭候选；完整实验与结果审查；在预算边界交付实验或阶段成果" width="100%">
 </p>
 
-*图 1：外层选择机制，内层验证有限修复假设。关闭单个候选后，保留研究主线和剩余预算。*
+*图 1：先从项目证据与前沿工作定位研究机会，再选择机制；内层验证有限修复假设。研究范围与剩余预算跨候选保留。*
 
-1. **明确项目。** 阅读材料、补齐未知事实，确认论文目标、时间、资源和评价协议。
-2. **选择并审查机制。** 从真实失败模式提出可证伪假设，对照最近邻、实现路径和可区分机制的实验。
+1. **明确项目并定位机会。** 补齐事实和固定需求，确认目标与资源，再对照前沿范围和项目限制确定具体问题及决策节点。
+2. **选择并审查机制。** 核对假设、最近邻差异和实现路径；小试前写清最小区分实验及不同结果的解释。
 3. **做小规模验证。** 先检查实现与评价链路，再做小试；对负结果或不明确结果提出具体修复假设。
 4. **补齐实验。** 具备新颖性依据，且初步收益经结果复核后，完成协议要求的公平比较与贡献所需证据。
 5. **复核并交付。** 根据原始产物复算结论，报告目标是否达成、部分达成或仍缺依据。
@@ -138,11 +139,11 @@ python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
 | 文档 | 内容 |
 | --- | --- |
 | [设计说明](docs/DESIGN.md) | 范围、流程、审查、有限迭代和科研技能整合。 |
-| [v0.1.3 验证](docs/VALIDATION-0.1.3.md) | 隔离报告、后置核验及查新/实验接续的有界合成检查。 |
+| [v0.2.0 验证](docs/VALIDATION-0.2.0.md) | 研究定位、分阶段小试准入、预算接续及预设实验决策的合成检查。 |
 | [中文验证记录](docs/VALIDATION.zh-CN.md) · [English](docs/VALIDATION.md) | 已完成的软件与内部行为检查，以及待做的真实研究验证。 |
 | [技能入口](skills/ai-research-workflow/SKILL.md) | Codex 实际加载的规程。 |
 | [设计来源](skills/ai-research-workflow/references/sources.md) | 固定到已查阅提交的上游来源与适配边界。 |
-| [发布与迁移说明](docs/RELEASE-NOTES-0.1.3.md) | 版本、安装和发布信息。 |
+| [发布与迁移说明](docs/RELEASE-NOTES-0.2.0.md) | 版本、安装和发布信息。 |
 | [变更记录](CHANGELOG.md) | 仓库改动。 |
 | [测试前审查](docs/AUDIT-2026-10-26.zh-CN.md) · [项目试用清单](docs/PILOT-TEST.zh-CN.md) | 本轮发现、修订与真实试用的观察条件。 |
 
@@ -153,7 +154,7 @@ python -m unittest discover -s tests -v
 python tools/validate_repository.py
 ```
 
-当前版本有 40 项软件测试，并由 Windows/Linux × Python 3.10/3.12 CI 验证。合成场景检查覆盖访谈和证据审查，与算法性能基准分别报告。下一阶段重点是在真实项目中完成小试、恢复核对、公平对比与消融，建立科研有效性证据。
+当前版本有 40 项软件测试，CI 覆盖 Windows/Linux × Python 3.10/3.12。合成检查覆盖研究定位与分阶段决策，实际结果见版本验证记录。阶段汇报分别列出模型新增、证据新增和工程恢复，继承成绩保留原版本归属；真实科研有效性仍需公平实验与完整证据。
 
 ## 整合的科研技能与方法
 
@@ -179,7 +180,7 @@ python tools/validate_repository.py
 @software{ai_research_workflow_2026,
   author  = {{boji1334}},
   title   = {AI Research Workflow},
-  version = {0.1.3},
+  version = {0.2.0},
   year    = {2026},
   url     = {https://github.com/boji1334/ai-research-workflow}
 }

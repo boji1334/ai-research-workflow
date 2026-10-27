@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0 — 2026-10-27
+
+- Add project-grounded research positioning: separate a crowded direction, a concrete open problem, mechanism equivalence and the evidence needed to choose an opportunity.
+- Preserve user-fixed tasks and data roles; propose concrete scope changes instead of silently switching to an unseen-class or easier evaluation protocol.
+- Make pilot admission, experimental expansion and final contribution acceptance distinct decisions, with issues scoped to the affected action/claim.
+- Predeclare the meaning of pilot outcomes and choose minimal discriminating tests against relevant effective baselines.
+- Bound positioning, review and engineering recovery alongside candidate repairs; report reservations and actual available resources separately.
+- Separate inherited scores, new model progress, added evidence and engineering recovery in continuation reports.
+- Add two synthetic isolated behavior fixtures. Keep invocation, registry code/schema, the two-repair ceiling and existing histories compatible.
+
 ## 0.1.3 — 2026-10-26
 
 - Adapt Nature Skills review and academic-search methods to vision research experiments, with pinned provenance.

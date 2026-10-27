@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml"><img src="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml/badge.svg" alt="Software validation"></a>
-  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.1.3"><img src="https://img.shields.io/badge/release-v0.1.3%20preview-166b5b" alt="v0.1.3 preview"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.2.0"><img src="https://img.shields.io/badge/release-v0.2.0%20preview-166b5b" alt="v0.2.0 preview"></a>
   <a href="skills/ai-research-workflow/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="Optional CLI: Python 3.10 or newer"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT License"></a>
 </p>
@@ -25,7 +25,7 @@
   <a href="#citation">Citation</a>
 </p>
 
-AI Research Workflow gives Codex a research procedure: understand the existing project, agree on the publication target and budget, examine the closest prior work, implement a mechanism, run bounded experiments, and review the evidence. The workflow ends at an experimental handoff containing code, results, ablations, review records, and reproduction instructions.
+AI Research Workflow gives Codex a research procedure: understand the existing project, agree on the publication target and budget, position a concrete opportunity against the closest prior work, implement a mechanism, run bounded experiments, and review the evidence. The workflow ends at an experimental handoff containing code, results, ablations, review records, and reproduction instructions.
 
 **Status — experimental preview.** Software checks and isolated synthetic behavior checks are documented in the [validation record](docs/VALIDATION.md). End-to-end effectiveness on real vision research projects remains to be evaluated. Novelty, performance gains, and publication readiness require project evidence.
 
@@ -34,8 +34,9 @@ AI Research Workflow gives Codex a research procedure: understand the existing p
 | Capability | Research behavior |
 | --- | --- |
 | **Project-grounded intake** | Read existing materials and resolve project facts first; then confirm the journal or publication level, access preference, and deadline. |
+| **Research positioning** | Link a nearest-neighbor limitation to project evidence, a mechanism hypothesis, a bounded test and a decision checkpoint; preserve fixed user requirements. |
 | **Mechanism-level novelty review** | Compare the closest papers, equations, supervision, and implementation paths. Separate a new mechanism from a renamed or known enhancement. |
-| **Two scientific reviews** | Review the module before a pilot and the results before expansion or acceptance; formal reviews use isolated reports followed by a separate numerical audit and tracked resolution tests. |
+| **Staged scientific reviews** | Separate pilot admission, expansion and contribution acceptance; scope blockers to the affected action, with isolated formal reports and a numerical audit. |
 | **Bounded candidate search** | After an unsuccessful initial pilot, allow at most two justified small repair rounds. Close exhausted candidates and explore a different mechanism within the remaining budget. |
 | **Evidence matched to the claim** | Plan strong baselines, fair comparisons, ablations, stability, generalization, and cost measurements around the actual contribution and publication target. |
 | **Traceable continuation** | Preserve the project protocol, candidate history, run identities, raw artifacts, failures, reviews, and next action across sessions. |
@@ -90,10 +91,10 @@ Literature checks use the search and browsing tools available to Codex. Training
   <img src="docs/assets/research-loop.svg" alt="Project intake and protocol; mechanism review and pilot; bounded repairs or candidate closure; full experiments and result review; experimental handoff at the agreed budget boundary" width="100%">
 </p>
 
-*Figure 1. The outer loop selects mechanisms; the inner loop tests a bounded repair hypothesis. Candidate closure preserves the research question and its remaining budget.*
+*Figure 1. Position a project-grounded opportunity before selecting a mechanism. The inner loop tests a bounded repair hypothesis; scope and remaining resources persist across candidates.*
 
-1. **Establish the project.** Read the available evidence, resolve unknowns, and agree on the publication target, time, resources, and acceptance protocol.
-2. **Select and review a mechanism.** Connect a real failure mode to a falsifiable hypothesis; inspect its closest prior work, implementation, and discriminating experiments.
+1. **Establish and position the project.** Resolve facts and fixed requirements, agree on the target and resources, then connect prior work to an evidenced opportunity and decision checkpoint.
+2. **Select and review a mechanism.** Check a concrete hypothesis, nearest-neighbor differences and implementation. Record a minimal distinguishing test and the meaning of possible outcomes before the pilot.
 3. **Run a small pilot.** Check the implementation and evaluation path before committing to full experiments. Investigate negative or ambiguous results using a specific repair hypothesis.
 4. **Build the evidence.** After supported novelty, preliminary gain, and initial result review, complete the fair comparisons and contribution-specific experiments required by the protocol.
 5. **Review and hand off.** Recompute what the raw artifacts support and report whether the research target was met, partially met, or remains unsupported.
@@ -142,10 +143,10 @@ The helper records runs; Codex and the project's execution tools launch them. Sc
 | --- | --- |
 | [Design note](docs/DESIGN.md) | Scope, workflow, review logic, bounded iteration, and research-method synthesis. |
 | [Validation record](docs/VALIDATION.md) | Completed software and internal behavior checks; outstanding research validation. |
-| [v0.1.3 validation](docs/VALIDATION-0.1.3.md) | Isolated review, post-review audit, and bounded literature/experiment continuation checks. |
+| [v0.2.0 validation](docs/VALIDATION-0.2.0.md) | Research positioning, scoped pilot admission, budget continuity and predeclared experimental decisions. |
 | [Skill entrypoint](skills/ai-research-workflow/SKILL.md) | The procedure loaded by Codex. |
 | [Design provenance](skills/ai-research-workflow/references/sources.md) | Upstream sources pinned to inspected revisions and the exact adaptation boundaries. |
-| [Release notes and migration](docs/RELEASE-NOTES-0.1.3.md) | Versioned installation and release information. |
+| [Release notes and migration](docs/RELEASE-NOTES-0.2.0.md) | Versioned installation and release information. |
 | [Changelog](CHANGELOG.md) | Changes to the repository. |
 | [Pre-pilot audit](docs/AUDIT-2026-10-26.zh-CN.md) · [Pilot checklist](docs/PILOT-TEST.zh-CN.md) | Findings, fixes, and observable behavior for a first project pilot (Chinese). |
 
@@ -158,7 +159,7 @@ python tools/validate_repository.py
 
 The current release has 40 software tests and a Windows/Linux × Python 3.10/3.12 CI matrix. Synthetic checks exercise intake and evidence review; they are distinct from algorithm benchmarks. See [validation details](docs/VALIDATION.md).
 
-Near-term work focuses on one real project pilot, recovery checks in its execution environment, and evidence from fair comparisons and ablations before claiming research effectiveness.
+Stage reports distinguish model changes, added evidence and engineering recovery, with inherited scores attributed to their original versions. Real-project research effectiveness still requires observed fair experiments and completed evidence.
 
 ## Research skills and methods
 
@@ -184,7 +185,7 @@ To reference this software, use the repository's **Cite this repository** entry 
 @software{ai_research_workflow_2026,
   author  = {{boji1334}},
   title   = {AI Research Workflow},
-  version = {0.1.3},
+  version = {0.2.0},
   year    = {2026},
   url     = {https://github.com/boji1334/ai-research-workflow}
 }

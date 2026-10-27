@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="866" viewBox="0 0 1280 866" role="img" aria-labelledby="title desc">
 <title id="title">Research workflow and bounded candidate loop</title>
-<desc id="desc">Project intake precedes mechanism review and a small pilot. Negative or ambiguous pilot results can lead to at most two repair rounds, or candidate closure. Supported novelty and reviewed pilot gain proceed to full experiments and final result review. Project-level deadline and resource boundaries apply to every stage.</desc>
+<desc id="desc">Project intake and evidence-grounded research positioning precede mechanism review and a small pilot. Negative or ambiguous pilot results can lead to at most two repair rounds, or candidate closure. Supported novelty and reviewed pilot gain proceed to full experiments and final result review. Project-level deadline and resource boundaries apply to every stage.</desc>
 <defs>
 <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
 <path d="M0 0 L8 4 L0 8 Z" fill="#536870"/>
@@ -22,9 +22,9 @@
 <text x="60" y="212" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Project facts → publication target → acceptance protocol</text>
 <text x="60" y="241" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Read the materials · clarify gaps · agree data roles, baselines, evidence, time and resource limits.</text>
 <rect x="40" y="327" width="275" height="151" rx="8" fill="white" stroke="#cbd7d4"/>
-<text x="60" y="354" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#536870" text-anchor="start">02 / DESIGN + REVIEW</text>
-<text x="60" y="386" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Mechanism review</text>
-<text x="60" y="415" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Bottleneck and nearest work</text>
+<text x="60" y="354" font-family="Consolas, Liberation Mono, monospace" font-size="12" font-weight="600" fill="#536870" text-anchor="start">02 / POSITION + DESIGN</text>
+<text x="60" y="386" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#182c35" text-anchor="start">Position + review</text>
+<text x="60" y="415" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Prior work and project gap</text>
 <text x="60" y="438" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Distinct, testable mechanism</text>
 <text x="60" y="461" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#536870" text-anchor="start">Implementation and pilot plan</text>
 <rect x="358" y="327" width="260" height="151" rx="8" fill="white" stroke="#cbd7d4"/>
