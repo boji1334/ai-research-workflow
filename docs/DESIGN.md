@@ -1,6 +1,6 @@
 # AI Research Workflow: design note
 
-**Implementation:** v0.2.0 experimental skill. **Document date:** October 27, 2026.
+**Implementation:** v0.3.0 experimental skill. **Document date:** October 30, 2026.
 
 This note describes the procedure implemented by the [skill](../skills/ai-research-workflow/SKILL.md), its optional run registry, and its current validation limits. It is project documentation. Research effectiveness on a real vision research project is an open validation task.
 
@@ -61,7 +61,7 @@ There is no fixed percentage-point threshold that implies top-tier readiness acr
 | Intake | Existing project materials and user requirements | Resolved facts, remaining gaps, target, deadline | Clarify or establish protocol |
 | Research positioning | Closest sources, project failures and fixed constraints | Solved scope, supported opportunity, uncertainty, cost and decision checkpoint | Select a candidate, run a bounded decision probe, or propose a scope adjustment |
 | Mechanism design | Failure evidence and closest prior work | Candidate family, hypothesis, differences, implementation path, distinguishing test | Enter module review |
-| Module review | Candidate, original sources, code plan, protocol | Evidence-linked issues, impact, repair and uncertainty | Pilot, revise, known enhancement, or close |
+| Module review | Candidate, target references, dataset evidence, code plan and protocol | Evidence-linked target fit, data relevance, necessity and reliability assessment | Revise, known enhancement, close, or supported design followed by pilot admission |
 | Pilot and bounded repair | Reviewed candidate and small-run budget | Code/config/data/seed identity, command, outputs, reviewed outcome | Expand evidence, justify repair, or close |
 | Full experiments | Supported novelty and reviewed pilot gain | Fair baselines, comparisons, necessary ablations and claim-specific evidence | Enter final result review |
 | Result review | Raw results, code, evaluator, protocol and claim | Recomputed metrics, confounds, stability, gaps, review verdict | Complete evidence or bounded follow-up |
@@ -83,9 +83,13 @@ At a project-specific positioning checkpoint, produce a selected candidate, a fi
 
 Review the existence of the bottleneck, coverage of nearest prior work, mathematical or algorithmic differences, assumptions, and permitted information flow. Check whether tensor interfaces, gradients, training and inference paths are coherent and whether an experiment can distinguish the proposed explanation from obvious confounds.
 
-Available decisions are `proceed_to_pilot`, `revise_before_pilot`, `known_enhancement`, and `close_candidate`. Passing this review means the candidate merits a bounded test. It does not prove novelty or a gain.
+Within this same review, complete [target-led design admission](../skills/ai-research-workflow/references/admission.md): target fit, dataset relevance, mechanism necessity and design reliability each need traceable reasons. Compare the contribution against relevant target-level work, connect actual project facts to the hypothesis, assess simpler alternatives, and resolve known critical design defects. A different formula, a runnable implementation or an auxiliary-task phenomenon is not sufficient.
 
-Separate pilot admission, experimental expansion and final contribution acceptance. Missing performance, full ablations or cross-dataset evidence can remain open for later acceptance without automatically blocking a justified pilot. Demonstrated leakage, logical/implementation errors and a non-discriminating design affect the corresponding next action. A proven equivalent method blocks its originality claim but may remain a properly attributed baseline/control. Every finding identifies the smallest affected claim or stage and the evidence needed there.
+Record `design_supported`, `needs_design_revision`, `known_enhancement` or `close_candidate` in the [admission record](../skills/ai-research-workflow/assets/admission.md) or an equivalent project record. Bind it to the target, method/code and data-evidence version. `design_supported` enables assessment of `proceed_to_pilot`; pending dynamic engineering requirements can still require `revise_before_pilot`. It supports a reasoned investment under the user's goal, not a guaranteed journal level, gain or defect-free method.
+
+Separate design admission, pilot execution, experimental expansion and final contribution acceptance. Missing measured gain, full ablations or cross-dataset results do not automatically block a design-supported pilot. Missing target fit, the dataset-to-mechanism rationale or design necessity does block candidate training. Demonstrated leakage, information loss contradicting the claim, logical/implementation errors and a non-discriminating design affect the corresponding action. A proven equivalent method may remain a properly attributed necessary baseline/control. Every finding identifies the affected claim/stage and the evidence needed there.
+
+Before design admission, bounded literature/fact checks, synthetic counterexamples and read-only diagnostics with existing weights may resolve specific gaps. Candidate optimizer updates, short-effect trials and training smoke remain candidate experiments regardless of a diagnostic, probe or engineering label. After admission, real dynamic engineering checks and training stay within the original budget. Changes to a method require review of affected admission criteria; unchanged valid evidence and cumulative histories are reused.
 
 ### Result review
 
@@ -101,7 +105,7 @@ Formal module and final-result reviews default to three isolated internal report
 
 Material issues carry stable IDs, affected claims/stages, blocking status, resolution tests, and recheck evidence. Open blockers prevent the affected transition or acceptance. Review findings do not create extra repair rounds or extend the deadline. Search records separately track source failures, linked paper versions, citation identity, and support for a specific claim.
 
-**Current enforcement boundary:** the instructions require module and result review at key decisions. They do not mandate a new isolated review agent before every repair round, and the registry does not validate a review report's approval. These remain procedural responsibilities in v0.2.0. See the [review procedure](../skills/ai-research-workflow/references/review.md).
+**Current enforcement boundary:** design admission is a mandatory procedural precondition for candidate training, implemented in the existing module review rather than an additional standing review panel. The optional registry does not read admission reports or judge publication quality. Successful registration does not grant scientific admission; the executor checks the actual record and blockers. This remains explicit in v0.3.0. See the [review procedure](../skills/ai-research-workflow/references/review.md).
 
 ## 6. Negative results and bounded search
 

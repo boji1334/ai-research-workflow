@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml"><img src="https://github.com/boji1334/ai-research-workflow/actions/workflows/validate.yml/badge.svg" alt="Software validation"></a>
-  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.2.0"><img src="https://img.shields.io/badge/release-v0.2.0%20preview-166b5b" alt="v0.2.0 preview"></a>
+  <a href="https://github.com/boji1334/ai-research-workflow/releases/tag/v0.3.0"><img src="https://img.shields.io/badge/release-v0.3.0%20preview-166b5b" alt="v0.3.0 preview"></a>
   <a href="skills/ai-research-workflow/scripts/research_guard.py"><img src="https://img.shields.io/badge/optional%20CLI-Python%203.10%2B-49647c" alt="Optional CLI: Python 3.10 or newer"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-49647c" alt="MIT License"></a>
 </p>
@@ -35,8 +35,9 @@ AI Research Workflow gives Codex a research procedure: understand the existing p
 | --- | --- |
 | **Project-grounded intake** | Read existing materials and resolve project facts first; then confirm the journal or publication level, access preference, and deadline. |
 | **Research positioning** | Link a nearest-neighbor limitation to project evidence, a mechanism hypothesis, a bounded test and a decision checkpoint; preserve fixed user requirements. |
+| **Target-led design admission** | Before candidate training, substantiate target fit, dataset relevance, mechanism necessity and design reliability in the existing module review. |
 | **Mechanism-level novelty review** | Compare the closest papers, equations, supervision, and implementation paths. Separate a new mechanism from a renamed or known enhancement. |
-| **Staged scientific reviews** | Separate pilot admission, expansion and contribution acceptance; scope blockers to the affected action, with isolated formal reports and a numerical audit. |
+| **Staged scientific reviews** | Separate design admission, pilot execution, expansion and contribution acceptance; scope blockers to the affected action, with isolated formal reports and a numerical audit. |
 | **Bounded candidate search** | After an unsuccessful initial pilot, allow at most two justified small repair rounds. Close exhausted candidates and explore a different mechanism within the remaining budget. |
 | **Evidence matched to the claim** | Plan strong baselines, fair comparisons, ablations, stability, generalization, and cost measurements around the actual contribution and publication target. |
 | **Traceable continuation** | Preserve the project protocol, candidate history, run identities, raw artifacts, failures, reviews, and next action across sessions. |
@@ -94,7 +95,7 @@ Literature checks use the search and browsing tools available to Codex. Training
 *Figure 1. Position a project-grounded opportunity before selecting a mechanism. The inner loop tests a bounded repair hypothesis; scope and remaining resources persist across candidates.*
 
 1. **Establish and position the project.** Resolve facts and fixed requirements, agree on the target and resources, then connect prior work to an evidenced opportunity and decision checkpoint.
-2. **Select and review a mechanism.** Check a concrete hypothesis, nearest-neighbor differences and implementation. Record a minimal distinguishing test and the meaning of possible outcomes before the pilot.
+2. **Admit a design before training.** Compare target-relevant contributions, connect project evidence to the mechanism, assess simpler alternatives and critical counterexamples. A supported design can proceed to bounded engineering checks and a discriminating pilot.
 3. **Run a small pilot.** Check the implementation and evaluation path before committing to full experiments. Investigate negative or ambiguous results using a specific repair hypothesis.
 4. **Build the evidence.** After supported novelty, preliminary gain, and initial result review, complete the fair comparisons and contribution-specific experiments required by the protocol.
 5. **Review and hand off.** Recompute what the raw artifacts support and report whether the research target was met, partially met, or remains unsupported.
@@ -105,6 +106,7 @@ The [design note](docs/DESIGN.md) specifies artifacts, review criteria, failure 
 
 | Situation | Next action |
 | --- | --- |
+| Target fit, dataset rationale or design necessity insufficient | Revise the design or close the candidate; do not begin candidate training, including training relabeled as diagnosis. |
 | Gain with insufficient novelty | Preserve a known enhancement and its results; continue searching for a supported new mechanism. |
 | Supported novelty, no gain | Review implementation, fairness, and the mechanism hypothesis; run up to two justified small repair rounds after the initial pilot. |
 | Repairs exhausted or mechanism refuted | Close that candidate. A different mechanism may proceed within the original research scope and remaining resources. |
@@ -135,7 +137,7 @@ python SKILL_DIR/scripts/research_guard.py status --registry research-runs.json
 
 Replace `SKILL_DIR` with your installed skill directory. The [command reference](skills/ai-research-workflow/references/state-and-delivery.md) covers initialization, reservation, completion, and recovery.
 
-The helper records runs; Codex and the project's execution tools launch them. Scientific judgments, actual process state, GPU hours, and storage quotas require separate verification. Review-report approval is currently a procedural responsibility rather than a CLI-enforced check.
+The helper records runs; Codex and the project's execution tools launch them. Scientific judgments, actual process state, GPU hours, and storage quotas require separate verification. Design-admission and review approval are procedural responsibilities; the CLI does not read those reports or certify scientific quality.
 
 ## Documentation and validation
 
@@ -143,10 +145,10 @@ The helper records runs; Codex and the project's execution tools launch them. Sc
 | --- | --- |
 | [Design note](docs/DESIGN.md) | Scope, workflow, review logic, bounded iteration, and research-method synthesis. |
 | [Validation record](docs/VALIDATION.md) | Completed software and internal behavior checks; outstanding research validation. |
-| [v0.2.0 validation](docs/VALIDATION-0.2.0.md) | Research positioning, scoped pilot admission, budget continuity and predeclared experimental decisions. |
+| [v0.3.0 validation](docs/VALIDATION-0.3.0.md) | Target-led proposal admission, design counterexamples, diagnostic-label boundaries and legitimate continuation with unknown effects. |
 | [Skill entrypoint](skills/ai-research-workflow/SKILL.md) | The procedure loaded by Codex. |
 | [Design provenance](skills/ai-research-workflow/references/sources.md) | Upstream sources pinned to inspected revisions and the exact adaptation boundaries. |
-| [Release notes and migration](docs/RELEASE-NOTES-0.2.0.md) | Versioned installation and release information. |
+| [Release notes and migration](docs/RELEASE-NOTES-0.3.0.md) | Versioned installation and release information. |
 | [Changelog](CHANGELOG.md) | Changes to the repository. |
 | [Pre-pilot audit](docs/AUDIT-2026-10-26.zh-CN.md) · [Pilot checklist](docs/PILOT-TEST.zh-CN.md) | Findings, fixes, and observable behavior for a first project pilot (Chinese). |
 
@@ -185,7 +187,7 @@ To reference this software, use the repository's **Cite this repository** entry 
 @software{ai_research_workflow_2026,
   author  = {{boji1334}},
   title   = {AI Research Workflow},
-  version = {0.2.0},
+  version = {0.3.0},
   year    = {2026},
   url     = {https://github.com/boji1334/ai-research-workflow}
 }

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0 — 2026-10-30
+
+- Require target-led design admission before candidate training, including optimizer-bearing smoke: target fit, dataset relevance, mechanism necessity and design reliability need explicit evidence and decisions.
+- Add an admission reference and record template within the existing module review; keep measured effectiveness and final acceptance separate from design merit.
+- Require targeted contribution comparisons, a dataset-to-mechanism rationale, simpler alternatives and critical design counterexamples; novelty alone no longer supplies pilot admission.
+- Close the diagnostic-label loophole: short candidate-effect training remains training, while bounded fact/algebra/read-only checks may address admission gaps.
+- Bind admission to current method/evidence versions, preserve prior histories, and review affected criteria on revision without restarting the entire process.
+- Add three isolated synthetic behavior fixtures; retain the registry code/schema, invocation and two-repair/global-budget limits.
+
 ## 0.2.0 — 2026-10-27
 
 - Add project-grounded research positioning: separate a crowded direction, a concrete open problem, mechanism equivalence and the evidence needed to choose an opportunity.
